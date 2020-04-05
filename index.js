@@ -13,14 +13,7 @@ const DEFAULT_OPTIONS = Object.freeze({
   /**
    * The default theme to load
    */
-  default: undefined,
-
-  // /**
-  //  * Include themes in the header as
-  //  *
-  //  * <link rel="alternate">
-  //  */
-  alternates: []
+  default: undefined
 });
 
 module.exports = {
@@ -58,27 +51,15 @@ module.exports = {
     }
 
     const rootUrl = this.project.config(process.env.EMBER_ENV).rootURL;
-    const links = [];
 
     if (this.theemoOptions.defaultTheme) {
-      links.push(`<link
+      return `<link
         href="${rootUrl}theemo/${this.theemoOptions.defaultTheme}.css"
         rel="stylesheet"
         title="${this.theemoOptions.defaultTheme}"
         data-theemo="${this.theemoOptions.defaultTheme}"
-      >`);
+      >`;
     }
-
-    for (const theme of this.theemoOptions.alternates) {
-      links.push(`<link
-        href="${rootUrl}theemo/${theme}.css"
-        rel="alternate stylesheet"
-        title="${theme}"
-        data-theemo="${theme}"
-      >`);
-    }
-
-    return links.join('\n');
   },
 
   findThemePackages() {

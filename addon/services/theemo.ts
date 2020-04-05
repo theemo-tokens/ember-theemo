@@ -82,7 +82,8 @@ export default class TheemoService extends Service {
       this.clearTheme(this.activeTheme);
     }
 
-    document.body.classList.add(name);
+    const element = this.elements.get(name) as HTMLLinkElement;
+    element.disabled = false;
     this.activeTheme = name;
   }
 
