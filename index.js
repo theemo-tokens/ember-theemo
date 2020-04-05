@@ -1,0 +1,190 @@
+'use strict';
+
+const path = require('path');
+
+const BroccoliDebug = require('broccoli-debug');
+const writeFile = require('broccoli-file-creator');
+const Funnel = require('broccoli-funnel');
+const mergeTrees = require('broccoli-merge-trees');
+
+const addonName = require('./package').name;
+
+const DEFAULT_OPTIONS = Object.freeze({
+  /**
+   * The default theme to load
+   */
+  default: undefined,
+
+  // /**
+  //  * Include themes in the header as
+  //  *
+  //  * <link rel="alternate">
+  //  */
+  alternates: []
+});
+
+module.exports = {
+  name: require('./package').name,
+
+  debugTree: BroccoliDebug.buildDebugCallback(addonName),
+
+  included(includer) {
+    this._super(includer);
+    this.computeOptions(includer);
+  },
+
+  computeOptions(includer) {
+    if (this.theemoOptions) return;
+
+    if (!includer.options && !this.app) {
+      throw new Error('Could not find parent options.');
+    }
+
+    const parentOptions = includer.options || this.app.options;
+    let options = parentOptions.theemo;
+
+    if (options && typeof options === 'object') {
+      options = { ...DEFAULT_OPTIONS, ...options };
+    } else {
+      options = { ...DEFAULT_OPTIONS };
+    }
+
+    this.theemoOptions = options;
+  },
+
+  contentFor(type) {
+    if (type !== 'head-footer') {
+      return;
+    }
+
+    const rootUrl = this.project.config(process.env.EMBER_ENV).rootURL;
+    const links = [];
+
+    if (this.theemoOptions.defaultTheme) {
+      links.push(`<link
+        href="${rootUrl}theemo/${this.theemoOptions.defaultTheme}.css"
+        rel="stylesheet"
+        title="${this.theemoOptions.defaultTheme}"
+        data-theemo="${this.theemoOptions.defaultTheme}"
+      >`);
+    }
+
+    for (const theme of this.theemoOptions.alternates) {
+      links.push(`<link
+        href="${rootUrl}theemo/${theme}.css"
+        rel="alternate stylesheet"
+        title="${theme}"
+        data-theemo="${theme}"
+      >`);
+    }
+
+    return links.join('\n');
+  },
+
+  findThemePackages() {
+    const keyword = 'theemo-theme';
+    const { dependencies = {}, devDependencies = {} } = this.project.pkg;
+
+    // eslint-disable-next-line unicorn/prefer-flat-map
+    const packages = []
+      .concat(...[dependencies, devDependencies].map(Object.keys))
+      .map(name => this.project.require(`${name}/package.json`))
+      .filter(json => json.keywords && json.keywords.includes(keyword))
+      .map(json => ({
+        name: (json.theemo && json.theemo.name) || json.name,
+        package: json
+      }));
+
+    if (packages.length === 0) {
+      throw new Error(
+        `Could not find a package with the '${keyword}' keyword.`
+      );
+    }
+    return packages;
+  },
+
+  treeForAddon(tree) {
+    const originalTree = this._super(tree);
+
+    // Only run for the root app.
+    if (this.parentAddon) return originalTree;
+
+    const packages = this.findThemePackages();
+
+    const themes = {};
+    for (const theme of packages) {
+      const theemo = theme.package.theemo || {};
+      themes[theme.name] = {
+        colorSchemes: theemo.colorSchemes || []
+      };
+    }
+
+    const configModuleName = `${this.name}/config`;
+    const config = {
+      options: this.theemoOptions,
+      themes
+    };
+
+    const configFile = writeFile(
+      `${configModuleName}.js`,
+      `define.exports('${configModuleName}', { default: ${JSON.stringify(
+        config
+      )} });`
+    );
+
+    const mergedTree = this.debugTree(
+      mergeTrees([originalTree, configFile], {
+        annotation: 'ember-theemo:merge-config'
+      }),
+      'treeForAddon'
+    );
+
+    return mergedTree;
+  },
+
+  treeForPublic(tree) {
+    const originalTree = this._super(tree);
+
+    // only run for root app
+    if (this.parentAddon) return originalTree;
+
+    const trees = [];
+    if (originalTree) {
+      trees.push(originalTree);
+    }
+
+    const packages = this.findThemePackages();
+    trees.push(
+      ...packages.map(theme => {
+        if (!theme.package.theemo.file) {
+          throw new Error(
+            `Package '${theme.package.name}' has no 'theemo.file' in their package.json`
+          );
+        }
+
+        const root = path.dirname(
+          this.project.resolveSync(`${theme.package.name}/package.json`)
+        );
+        const directory = path.join(
+          root,
+          path.dirname(theme.package.theemo.file)
+        );
+        const file = path.basename(theme.package.theemo.file);
+        return new Funnel(directory, {
+          files: [file],
+          destDir: '/theemo',
+          // I dunno why this next function is required :shrug:
+          getDestinationPath(relativePath) {
+            if (relativePath === file) {
+              return `./${theme.name}.css`;
+            }
+
+            return relativePath;
+          }
+        });
+      })
+    );
+
+    return this.debugTree(mergeTrees(trees), 'treeForPublic');
+  }
+};
