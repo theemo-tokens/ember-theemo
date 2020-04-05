@@ -5,8 +5,6 @@ import { tracked } from '@glimmer/tracking';
 import config from 'ember-get-config';
 import theemo from 'ember-theemo/config';
 
-import pEvent from 'p-event';
-
 export default class TheemoService extends Service {
   @tracked activeTheme?: string;
   @tracked activeColorScheme?: string;
@@ -121,16 +119,21 @@ export default class TheemoService extends Service {
     }
   }
 
-  private async createLinkElement(theme: string) {
+  private createLinkElement(theme: string): Promise<HTMLLinkElement> {
     const linkElement = document.createElement('link');
     linkElement.setAttribute('rel', 'stylesheet');
     linkElement.setAttribute('href', `${config.rootURL}theemo/${theme}.css`);
     linkElement.dataset.theemo = theme;
     document.head.appendChild(linkElement);
 
-    await pEvent(linkElement, 'load');
+    return new Promise(resolve => {
+      const listener = () => {
+        linkElement.removeEventListener('load', listener);
+        resolve(linkElement);
+      };
 
-    return linkElement;
+      linkElement.addEventListener('load', listener);
+    });
   }
 
   // private destroyLinkElement(node: Node) {
