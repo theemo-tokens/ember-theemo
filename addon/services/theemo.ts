@@ -14,12 +14,13 @@ export default class TheemoService extends Service {
   init() {
     super.init();
 
-    // find loaded themes
+    // find loaded themes and disable all
     for (const link of document.querySelectorAll('head > link') as NodeListOf<
       HTMLLinkElement
     >) {
       if (link.dataset.theemo) {
         this.elements.set(link.dataset.theemo, link);
+        link.disabled = true;
       }
     }
 
