@@ -11,13 +11,13 @@ export default class TheemoService extends Service {
 
   elements: Map<string, HTMLLinkElement> = new Map();
 
-  init() {
-    super.init();
+  constructor() {
+    super();
 
     // find loaded themes and disable all
-    for (const link of document.querySelectorAll('head > link') as NodeListOf<
-      HTMLLinkElement
-    >) {
+    for (const link of document.querySelectorAll(
+      'head > link'
+    ) as NodeListOf<HTMLLinkElement>) {
       if (link.dataset.theemo) {
         this.elements.set(link.dataset.theemo, link);
         link.disabled = true;
@@ -33,14 +33,14 @@ export default class TheemoService extends Service {
   /**
    * List of available themes
    */
-  get themes() {
+  get themes(): string[] {
     return Object.keys(theemo.themes);
   }
 
   /**
    * List of available color schemes for the active theme
    */
-  get colorSchemes() {
+  get colorSchemes(): string[] {
     if (this.activeTheme) {
       return this.getColorSchemes(this.activeTheme);
     }
@@ -48,7 +48,7 @@ export default class TheemoService extends Service {
     return [];
   }
 
-  getColorSchemes(name: string) {
+  getColorSchemes(name: string): string[] {
     assert(
       `Cannot find color schemes for theme '${name}': theme doesn't exist`,
       this.themes.includes(name)
@@ -67,7 +67,11 @@ export default class TheemoService extends Service {
    *
    * @param name theme name
    */
-  async setTheme(name: string) {
+  async setTheme(name: string): Promise<void> {
+    if (this.activeTheme === name) {
+      return;
+    }
+
     assert(
       `Cannot set theme '${name}': theme doesn't exist`,
       this.themes.includes(name)
@@ -86,7 +90,7 @@ export default class TheemoService extends Service {
     this.activeTheme = name;
   }
 
-  setColorScheme(name: string | undefined) {
+  setColorScheme(name: string | undefined): void {
     if (!this.activeTheme) {
       return;
     }
@@ -125,7 +129,7 @@ export default class TheemoService extends Service {
     linkElement.setAttribute('rel', 'stylesheet');
     linkElement.setAttribute('href', `${config.rootURL}theemo/${theme}.css`);
     linkElement.dataset.theemo = theme;
-    document.head.appendChild(linkElement);
+    document.head.append(linkElement);
 
     return new Promise(resolve => {
       const listener = () => {

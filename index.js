@@ -36,11 +36,10 @@ module.exports = {
     const parentOptions = includer.options || this.app.options;
     let options = parentOptions.theemo;
 
-    if (options && typeof options === 'object') {
-      options = { ...DEFAULT_OPTIONS, ...options };
-    } else {
-      options = { ...DEFAULT_OPTIONS };
-    }
+    options =
+      options && typeof options === 'object'
+        ? { ...DEFAULT_OPTIONS, ...options }
+        : { ...DEFAULT_OPTIONS };
 
     this.theemoOptions = options;
   },
@@ -66,9 +65,12 @@ module.exports = {
     const keyword = 'theemo-theme';
     const { dependencies = {}, devDependencies = {} } = this.project.pkg;
 
-    // eslint-disable-next-line unicorn/prefer-flat-map
-    const packages = []
-      .concat(...[dependencies, devDependencies].map(Object.keys))
+    const deps = [
+      ...Object.keys(dependencies),
+      ...Object.keys(devDependencies)
+    ];
+
+    const packages = deps
       .map(name => this.project.require(`${name}/package.json`))
       .filter(json => json.keywords && json.keywords.includes(keyword))
       .map(json => ({
@@ -76,11 +78,13 @@ module.exports = {
         package: json
       }));
 
-    if (packages.length === 0) {
-      throw new Error(
-        `Could not find a package with the '${keyword}' keyword.`
-      );
-    }
+    // if (packages.length === 0) {
+    //   // throw new Error(
+    //   //   `Could not find a package with the '${keyword}' keyword.`
+    //   // );
+    // }
+    // return packages;
+
     return packages;
   },
 
