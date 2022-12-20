@@ -1,0 +1,20 @@
+{
+  "name": "sample-theme",
+  "private": true,
+  "description": "Sample theemo theme",
+  "license": "MIT",
+  "keywords": [
+    "theemo-theme"
+  ],
+  "theemo": {
+    "name": "sample",
+    "colorSchemes": [
+      "light",
+      "dark"
+    ],
+    "file": "sample.css"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

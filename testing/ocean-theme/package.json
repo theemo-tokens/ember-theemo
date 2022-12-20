@@ -1,0 +1,16 @@
+{
+  "name": "ocean-theme",
+  "private": true,
+  "description": "Sample ocean theemo theme",
+  "license": "MIT",
+  "keywords": [
+    "theemo-theme"
+  ],
+  "theemo": {
+    "name": "ocean",
+    "file": "ocean.css"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}
