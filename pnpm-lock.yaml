@@ -18,9 +18,9 @@ importers:
       '@embroider/addon-shim': ^1.8.4
       '@glimmer/component': ^1.1.2
       '@glimmer/tracking': ^1.1.2
-      '@gossi/config-eslint': ^0.2.0
-      '@gossi/config-prettier': ^0.2.0
-      '@gossi/config-targets': ^0.2.0
+      '@gossi/config-eslint': ^0.3.0
+      '@gossi/config-prettier': ^0.3.0
+      '@gossi/config-targets': ^0.3.0
       '@rollup/plugin-babel': ^6.0.3
       broccoli-debug: ^0.6.5
       broccoli-file-creator: ^2.1.1
@@ -53,9 +53,9 @@ importers:
       '@embroider/addon-dev': 3.0.0_rollup@3.7.5
       '@glimmer/component': 1.1.2_@babel+core@7.20.5
       '@glimmer/tracking': 1.1.2
-      '@gossi/config-eslint': 0.2.0_ahtophbrd2laqvxoyg4c2wfe7i
-      '@gossi/config-prettier': 0.2.0_prettier@2.8.1
-      '@gossi/config-targets': 0.2.0
+      '@gossi/config-eslint': 0.3.0_ahtophbrd2laqvxoyg4c2wfe7i
+      '@gossi/config-prettier': 0.3.0_prettier@2.8.1
+      '@gossi/config-targets': 0.3.0
       '@rollup/plugin-babel': 6.0.3_zrxplyvfi52whpdwd6wkjjeo5q
       concurrently: 7.6.0
       ember-source: 4.9.3_vnrh5wqqakkeaioc2xfvwodvoq
@@ -80,11 +80,11 @@ importers:
       '@embroider/test-setup': ^2.0.2
       '@glimmer/component': ^1.1.2
       '@glimmer/tracking': ^1.1.2
-      '@gossi/config-eslint': ^0.2.0
-      '@gossi/config-prettier': ^0.2.0
-      '@gossi/config-stylelint': ^0.2.0
-      '@gossi/config-targets': ^0.2.0
-      '@gossi/config-template-lint': ^0.2.0
+      '@gossi/config-eslint': ^0.3.0
+      '@gossi/config-prettier': ^0.3.0
+      '@gossi/config-stylelint': ^0.3.0
+      '@gossi/config-targets': ^0.3.0
+      '@gossi/config-template-lint': ^0.3.0
       '@types/eslint': ^8.4.10
       '@types/qunit': ^2.19.3
       '@types/rsvp': ^4.0.4
@@ -129,11 +129,11 @@ importers:
       '@embroider/test-setup': 2.0.2
       '@glimmer/component': 1.1.2_@babel+core@7.20.5
       '@glimmer/tracking': 1.1.2
-      '@gossi/config-eslint': 0.2.0_ye6557rudq5q2ckq3vhhyxe6de
-      '@gossi/config-prettier': 0.2.0_prettier@2.8.1
-      '@gossi/config-stylelint': 0.2.0_stylelint@14.16.0
-      '@gossi/config-targets': 0.2.0
-      '@gossi/config-template-lint': 0.2.0_ember-template-lint@5.3.0
+      '@gossi/config-eslint': 0.3.0_ye6557rudq5q2ckq3vhhyxe6de
+      '@gossi/config-prettier': 0.3.0_prettier@2.8.1
+      '@gossi/config-stylelint': 0.3.0_stylelint@14.16.0
+      '@gossi/config-targets': 0.3.0
+      '@gossi/config-template-lint': 0.3.0_wd4dqt6xxyifuxsenoyf2crmiy
       '@types/eslint': 8.4.10
       '@types/qunit': 2.19.3
       '@types/rsvp': 4.0.4
@@ -1683,8 +1683,8 @@ packages:
       - '@babel/core'
     dev: true
 
-  /@gossi/config-eslint/0.2.0_ahtophbrd2laqvxoyg4c2wfe7i:
-    resolution: {integrity: sha512-HJs8puaaUIuwgDF2cny1lOKaHAYacZ0nagy5uR1AeGNkHUHSty7/CtvYgbSE3H/NVUuvSiVXnOAyzq59xryLVQ==}
+  /@gossi/config-eslint/0.3.0_ahtophbrd2laqvxoyg4c2wfe7i:
+    resolution: {integrity: sha512-e8cUnIH8mlmY+dnF6MeJSg8sbUzZOD8pFVC/l7u/wAggULyZFOQ4YivN3Mw7VJqNO3xXdTNJCQdqOIpwNHI3hw==}
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
       eslint: ^8.23.1
@@ -1717,8 +1717,8 @@ packages:
       - supports-color
     dev: true
 
-  /@gossi/config-eslint/0.2.0_ye6557rudq5q2ckq3vhhyxe6de:
-    resolution: {integrity: sha512-HJs8puaaUIuwgDF2cny1lOKaHAYacZ0nagy5uR1AeGNkHUHSty7/CtvYgbSE3H/NVUuvSiVXnOAyzq59xryLVQ==}
+  /@gossi/config-eslint/0.3.0_ye6557rudq5q2ckq3vhhyxe6de:
+    resolution: {integrity: sha512-e8cUnIH8mlmY+dnF6MeJSg8sbUzZOD8pFVC/l7u/wAggULyZFOQ4YivN3Mw7VJqNO3xXdTNJCQdqOIpwNHI3hw==}
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
       eslint: ^8.23.1
@@ -1751,8 +1751,8 @@ packages:
       - supports-color
     dev: true
 
-  /@gossi/config-prettier/0.2.0_prettier@2.8.1:
-    resolution: {integrity: sha512-HTua1uYFCsIFkZhKni/HiBVNm4PWbCPLYUw8LR1Qw3EPiFankHli55o/3J3rE4Ss7V3hKoqmo741BvXw3Iwqsg==}
+  /@gossi/config-prettier/0.3.0_prettier@2.8.1:
+    resolution: {integrity: sha512-9pUO0f+DwjprvWdXSxshQ7F8GibW4mML2rF0Nin8X4ecQY1Qq394Zm1nJU0snbnmeHRTxt5P5pVi08JNO4DPQg==}
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
       prettier: ^2.7.1
@@ -1760,13 +1760,13 @@ packages:
       prettier: 2.8.1
     dev: true
 
-  /@gossi/config-stylelint/0.2.0_stylelint@14.16.0:
-    resolution: {integrity: sha512-QY2GbwKj4eKZCTjtVawqmjFcZQhUbCI6LWY77DaSR+g9dH3Z99bGW6fB9+aM5act2xyeNrn5P4ixR9lGyKFEzA==}
+  /@gossi/config-stylelint/0.3.0_stylelint@14.16.0:
+    resolution: {integrity: sha512-fQMGtPFX0mOmpAlzzGVUD5y8WIZ4G6EBcov8Ocv3Yk/8slHb9ab6fmhWeHYiM6tD6jJvGkpyAmo3PD7uez/wpw==}
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
       stylelint: ^14.11.0
     dependencies:
-      '@gossi/config-targets': 0.2.0
+      '@gossi/config-targets': 0.3.0
       stylelint: 14.16.0
       stylelint-config-prettier: 9.0.4_stylelint@14.16.0
       stylelint-config-standard: 29.0.0_stylelint@14.16.0
@@ -1774,18 +1774,21 @@ packages:
       stylelint-order: 5.0.0_stylelint@14.16.0
     dev: true
 
-  /@gossi/config-targets/0.2.0:
-    resolution: {integrity: sha512-0MUEoksZVHAlayxp2PsJA/gFG8GoWPwBtaghDidAkrgVf1VxUTs/JR1KaRQPPX7GXqnB+VAsye4JKTMEAtiq1g==}
+  /@gossi/config-targets/0.3.0:
+    resolution: {integrity: sha512-6USn09aV57Nr5l3b6VnVCsFpDPXrvLlDDKvGNdYSZY3Au55JXRWIIRyaFSMTFIQf9381/UZST3AeVmYbLcQcwQ==}
     engines: {node: 16.* || >= 18.*}
     dev: true
 
-  /@gossi/config-template-lint/0.2.0_ember-template-lint@5.3.0:
-    resolution: {integrity: sha512-D2BPv4yGYaVMXtUBeityzPZ3PEVdmemZhZ1BpsZ/sYNCxDbWuT5N2Gk8Mc9jf00Ia/bSmkelzcta/DoOLdcEpA==}
+  /@gossi/config-template-lint/0.3.0_wd4dqt6xxyifuxsenoyf2crmiy:
+    resolution: {integrity: sha512-jAD7EjsSYvbmvQwXe1nhyxySfnp/xLLSkyZgZZeymiRSOBXfwZ2+oTJqGFu3QiOwuRd26XjpSnEWjLprbPy/1A==}
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
-      ember-template-lint: ^4.14.0
+      ember-template-lint: ^5.0.0
     dependencies:
       ember-template-lint: 5.3.0_ember-cli-htmlbars@6.1.1
+      ember-template-lint-plugin-prettier: 4.1.0_wd4dqt6xxyifuxsenoyf2crmiy
+    transitivePeerDependencies:
+      - prettier
     dev: true
 
   /@handlebars/parser/2.0.0:
@@ -5415,6 +5418,18 @@ packages:
       validate-peer-dependencies: 1.2.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /ember-template-lint-plugin-prettier/4.1.0_wd4dqt6xxyifuxsenoyf2crmiy:
+    resolution: {integrity: sha512-LGGn1SXS5vhH60Tp37D4yG8z9ftVMCSSBn5qst+7rjMtLAZuZYwq+q+fs46op745ds0NNtaj+3OzSpBj+RVL2w==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      ember-template-lint: '>= 4.0.0'
+      prettier: '>= 1.18.1'
+    dependencies:
+      ember-template-lint: 5.3.0_ember-cli-htmlbars@6.1.1
+      prettier: 2.8.1
+      prettier-linter-helpers: 1.0.0
     dev: true
 
   /ember-template-lint/5.3.0_ember-cli-htmlbars@6.1.1:
