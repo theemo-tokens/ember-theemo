@@ -5,9 +5,9 @@
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": "https://github.com/theemo-tokens/ember-theemo",
   "license": "MIT",
-  "author": "",
+  "author": "gossi",
   "files": [
     "addon-main.js",
     "dist"

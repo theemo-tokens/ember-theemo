@@ -4,13 +4,13 @@
 
 * `git clone <repository-url>`
 * `cd ember-theeno`
-* `yarn install`
+* `pnpm install`
 
 ## Linting
 
-* `yarn lint:hbs`
-* `yarn lint:js`
-* `yarn lint:js --fix`
+In each package
+
+* `pnpm lint`
 
 ## Running tests
 
