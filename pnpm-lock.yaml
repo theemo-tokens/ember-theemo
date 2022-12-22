@@ -87,6 +87,7 @@ importers:
       '@embroider/test-setup': ^2.0.2
       '@glimmer/component': ^1.1.2
       '@glimmer/tracking': ^1.1.2
+      '@glimmer/validator': ^0.84.2
       '@gossi/config-eslint': ^0.3.0
       '@gossi/config-prettier': ^0.3.0
       '@gossi/config-stylelint': ^0.3.0
@@ -136,6 +137,7 @@ importers:
       '@embroider/test-setup': 2.0.2
       '@glimmer/component': 1.1.2_@babel+core@7.20.5
       '@glimmer/tracking': 1.1.2
+      '@glimmer/validator': 0.84.2
       '@gossi/config-eslint': 0.3.0_ye6557rudq5q2ckq3vhhyxe6de
       '@gossi/config-prettier': 0.3.0_prettier@2.8.1
       '@gossi/config-stylelint': 0.3.0_stylelint@14.16.0
@@ -1608,6 +1610,12 @@ packages:
       '@glimmer/env': 0.1.7
     dev: true
 
+  /@glimmer/global-context/0.84.2:
+    resolution: {integrity: sha512-6FycLh/Eq0P3LA94bJL6WHPJyOTKeQD4KBWhowZ9TbeO3p4/WUr+POKPVEyfIx6YHybhpL9MGj45Y2r0hqVigw==}
+    dependencies:
+      '@glimmer/env': 0.1.7
+    dev: true
+
   /@glimmer/interfaces/0.83.1:
     resolution: {integrity: sha512-rjAztghzX97v8I4rk3+NguM3XGYcFjc/GbJ8qrEj19KF2lUDoDBW1sB7f0tov3BD5HlrGXei/vOh4+DHfjeB5w==}
     dependencies:
@@ -1684,6 +1692,13 @@ packages:
     dependencies:
       '@glimmer/env': 0.1.7
       '@glimmer/global-context': 0.83.1
+    dev: true
+
+  /@glimmer/validator/0.84.2:
+    resolution: {integrity: sha512-9tpSmwiktsJDqriNEiFfyP+9prMSdk08THA6Ik71xS/sudBKxoDpul678uvyEYST/+Z23F8MxwKccC+QxCMXNA==}
+    dependencies:
+      '@glimmer/env': 0.1.7
+      '@glimmer/global-context': 0.84.2
     dev: true
 
   /@glimmer/vm-babel-plugins/0.84.2_@babel+core@7.20.5:
