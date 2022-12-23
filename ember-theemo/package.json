@@ -88,7 +88,6 @@
   },
   "release-it": {
     "plugins": {
-      "@release-it-plugins/workspaces": true,
       "@release-it-plugins/lerna-changelog": {
         "infile": "CHANGELOG.md"
       }
