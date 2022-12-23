@@ -26,6 +26,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "prepublishOnly": "pnpm build",
+    "release": "release-it",
     "start": "rollup --config --bundleConfigAsCjs --watch"
   },
   "dependencies": {

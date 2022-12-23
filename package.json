@@ -1,9 +1,6 @@
 {
   "private": true,
   "repository": "https://github.com/theemo-tokens/ember-theemo",
-  "scripts": {
-    "release": "release-it"
-  },
   "volta": {
     "node": "18.12.1"
   },
