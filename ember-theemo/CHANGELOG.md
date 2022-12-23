@@ -1,5 +1,7 @@
 # Changelog
 
+## v0.1.1 (2022-12-23)
+
 ## v0.1.0 (2022-12-22)
 
 #### :boom: Breaking Change
