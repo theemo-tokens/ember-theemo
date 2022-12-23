@@ -50,6 +50,8 @@ jobs:
           version: latest
       - name: Install Dependencies
         run: pnpm install
+      - name: Build package
+        run: pnpm --filter ember-theemo build
       - name: Lint
         run: pnpm run -r --parallel --aggregate-output lint
 
