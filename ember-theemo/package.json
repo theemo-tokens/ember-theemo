@@ -53,11 +53,13 @@
     "@gossi/config-eslint": "^0.3.0",
     "@gossi/config-prettier": "^0.3.0",
     "@gossi/config-targets": "^0.3.0",
+    "@release-it-plugins/lerna-changelog": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.3",
     "concurrently": "^7.6.0",
     "ember-source": "^4.9.3",
     "eslint": "^8.30.0",
     "prettier": "^2.8.1",
+    "release-it": "^15.5.1",
     "rollup": "^3.7.5",
     "rollup-plugin-ts": "^3.0.2",
     "typescript": "^4.9.4",
@@ -82,6 +84,23 @@
     "app-js": {
       "./services/theemo.js": "./dist/_app_/services/theemo.js"
     }
+  },
+  "release-it": {
+    "plugins": {
+      "@release-it-plugins/workspaces": true,
+      "@release-it-plugins/lerna-changelog": {
+        "infile": "CHANGELOG.md"
+      }
+    },
+    "git": {
+      "tagName": "v${version}",
+      "commitMessage": "release v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    },
+    "npm": false
   },
   "volta": {
     "extends": "../package.json"

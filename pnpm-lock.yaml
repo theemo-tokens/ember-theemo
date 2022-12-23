@@ -3,14 +3,7 @@ lockfileVersion: 5.4
 importers:
 
   .:
-    specifiers:
-      '@release-it-plugins/lerna-changelog': ^5.0.0
-      '@release-it-plugins/workspaces': ^3.2.0
-      release-it: ^15.5.1
-    devDependencies:
-      '@release-it-plugins/lerna-changelog': 5.0.0_release-it@15.5.1
-      '@release-it-plugins/workspaces': 3.2.0_release-it@15.5.1
-      release-it: 15.5.1
+    specifiers: {}
 
   ember-theemo:
     specifiers:
@@ -28,6 +21,7 @@ importers:
       '@gossi/config-eslint': ^0.3.0
       '@gossi/config-prettier': ^0.3.0
       '@gossi/config-targets': ^0.3.0
+      '@release-it-plugins/lerna-changelog': ^5.0.0
       '@rollup/plugin-babel': ^6.0.3
       broccoli-debug: ^0.6.5
       broccoli-file-creator: ^2.1.1
@@ -38,6 +32,7 @@ importers:
       ember-source: ^4.9.3
       eslint: ^8.30.0
       prettier: ^2.8.1
+      release-it: ^15.5.1
       rollup: ^3.7.5
       rollup-plugin-ts: ^3.0.2
       typescript: ^4.9.4
@@ -63,11 +58,13 @@ importers:
       '@gossi/config-eslint': 0.3.0_ahtophbrd2laqvxoyg4c2wfe7i
       '@gossi/config-prettier': 0.3.0_prettier@2.8.1
       '@gossi/config-targets': 0.3.0
+      '@release-it-plugins/lerna-changelog': 5.0.0_release-it@15.5.1
       '@rollup/plugin-babel': 6.0.3_zrxplyvfi52whpdwd6wkjjeo5q
       concurrently: 7.6.0
       ember-source: 4.9.3_vnrh5wqqakkeaioc2xfvwodvoq
       eslint: 8.30.0
       prettier: 2.8.1
+      release-it: 15.5.1
       rollup: 3.7.5
       rollup-plugin-ts: 3.0.2_dfvv6ycyurbws2cwaqzuqj772y
       typescript: 4.9.4
@@ -2092,22 +2089,6 @@ packages:
     transitivePeerDependencies:
       - bluebird
       - supports-color
-    dev: true
-
-  /@release-it-plugins/workspaces/3.2.0_release-it@15.5.1:
-    resolution: {integrity: sha512-ooEIgwb4qwGFQa9kXoTaQDHgD2Vymy5Z/aKL1JefnVUg1hiKL8Lh5fEfkDXggeXetTYk+SaFm2YNLrVOarX+Kw==}
-    engines: {node: '>= 14'}
-    peerDependencies:
-      release-it: ^14.0.0 || ^15.2.0
-    dependencies:
-      detect-indent: 6.1.0
-      detect-newline: 3.1.0
-      release-it: 15.5.1
-      semver: 7.3.8
-      url-join: 4.0.1
-      validate-peer-dependencies: 1.2.0
-      walk-sync: 2.2.0
-      yaml: 2.2.0
     dev: true
 
   /@rollup/plugin-babel/6.0.3_zrxplyvfi52whpdwd6wkjjeo5q:
@@ -13147,10 +13128,6 @@ packages:
     deprecated: Please see https://github.com/lydell/urix#deprecated
     dev: true
 
-  /url-join/4.0.1:
-    resolution: {integrity: sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==}
-    dev: true
-
   /url-join/5.0.0:
     resolution: {integrity: sha512-n2huDr9h9yzd6exQVnH/jU5mr+Pfx08LRXXZhkLLetAMESRj+anQsTAh940iMrIetKAmry9coFuZQ2jY8/p3WA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -13678,11 +13655,6 @@ packages:
   /yaml/1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
-    dev: true
-
-  /yaml/2.2.0:
-    resolution: {integrity: sha512-auf7Gi6QwO7HW//GA9seGvTXVGWl1CM/ADWh1+RxtXr6XOxnT65ovDl9fTi4e0monEyJxCHqDpF6QnFDXmJE4g==}
-    engines: {node: '>= 14'}
     dev: true
 
   /yargs-parser/20.2.9:
