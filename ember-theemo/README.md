@@ -1,12 +1,12 @@
 # ember-theemo
 
-Loads [theemo](https://gossi.github.io/theemo) themes into the ember pipeline. Watching themes for changes and
+Loads [theemo](https://theemo.io) themes into the ember pipeline. Watching themes for changes and
 triggers page refreshs.
 
 ## Installation
 
 ```bash
-ember install ember-theeno
+ember install ember-theemo
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ At the moment, usage is very experimental as there are surprisingly a plethora
 of behaviors for your theme. As the combinations are not well experienced, the
 API will mature with these experiences.
 
-!! Note: For now ember-theemo assumes your themes are [generated](https://gossi.github.io/theemo/docs/generate) with this
+!! Note: For now `ember-theemo` assumes your themes are [generated](https://theemo.io/cli/generate) with this
 configuration:
 
 ```json
