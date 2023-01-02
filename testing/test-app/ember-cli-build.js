@@ -4,6 +4,12 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    'ember-cli-swc-minifier': {
+      enabled: true,
+
+      exclude: ['vendor.js']
+    },
+
     // Add options here
     theemo: {
       defaultTheme: 'sample'
@@ -17,5 +23,7 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  return app.toTree();
+  const { maybeEmbroider } = require('@embroider/test-setup');
+
+  return maybeEmbroider(app);
 };
