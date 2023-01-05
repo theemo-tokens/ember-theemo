@@ -8,13 +8,18 @@ const writeFile = require('broccoli-file-creator');
 const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
+// eslint-disable-next-line node/no-missing-require
+const { createConfig } = require('ember-theemo/lib');
+// eslint-disable-next-line node/no-missing-require
+const { findThemePackages } = require('ember-theemo/lib/package');
+
 const addonName = require('./package').name;
 
 const DEFAULT_OPTIONS = Object.freeze({
   /**
    * The default theme to load
    */
-  default: undefined
+  defaultTheme: undefined
 });
 
 module.exports = {
@@ -46,86 +51,29 @@ module.exports = {
   },
 
   contentFor(type) {
-    if (type !== 'head-footer') {
-      return;
+    if (type === 'body-footer') {
+      const theemoPackages = findThemePackages(this.project.pkg, this.project.root);
+      const config = createConfig(this.theemoOptions, theemoPackages);
+
+      return [
+        '<script id="theemo-config" type="application/json">',
+        JSON.stringify(config),
+        '</script>'
+      ].join('\n');
     }
 
-    const rootUrl = this.project.config(process.env.EMBER_ENV).rootURL;
+    if (type === 'head-footer' && this.theemoOptions.defaultTheme) {
+      const rootUrl = this.project.config(process.env.EMBER_ENV).rootURL;
 
-    if (this.theemoOptions.defaultTheme) {
       return `<link
-        href="${rootUrl}theemo/${this.theemoOptions.defaultTheme}.css"
-        rel="stylesheet"
-        title="${this.theemoOptions.defaultTheme}"
-        data-theemo="${this.theemoOptions.defaultTheme}"
-      >`;
+          href="${rootUrl}theemo/${this.theemoOptions.defaultTheme}.css"
+          type="text/css"
+          rel="stylesheet"
+          title="${this.theemoOptions.defaultTheme}"
+          data-theemo="${this.theemoOptions.defaultTheme}"
+          data-embroider-ignore
+        >`;
     }
-  },
-
-  findThemePackages() {
-    const keyword = 'theemo-theme';
-    const { dependencies = {}, devDependencies = {} } = this.project.pkg;
-
-    const deps = [...Object.keys(dependencies), ...Object.keys(devDependencies)];
-
-    const packages = deps
-      .map((name) => this.project.require(`${name}/package.json`))
-      .filter((json) => json.keywords && json.keywords.includes(keyword))
-      .map((json) => ({
-        name: (json.theemo && json.theemo.name) || json.name,
-        package: json
-      }));
-
-    // if (packages.length === 0) {
-    //   // throw new Error(
-    //   //   `Could not find a package with the '${keyword}' keyword.`
-    //   // );
-    // }
-    // return packages;
-
-    return packages;
-  },
-
-  treeForAddon(tree) {
-    const originalTree = this._super.treeForAddon.apply(this, tree);
-
-    // Only run for the root app.
-    if (this.parentAddon) return originalTree;
-
-    const packages = this.findThemePackages();
-
-    const themes = {};
-
-    for (const theme of packages) {
-      const theemo = theme.package.theemo || {};
-
-      themes[theme.name] = {
-        colorSchemes: theemo.colorSchemes || []
-      };
-    }
-
-    const configModuleName = `${this.name}/config`;
-    const config = {
-      options: this.theemoOptions,
-      themes
-    };
-
-    const configFile = writeFile(
-      `${configModuleName}.js`,
-      `define.exports('${configModuleName}', ${JSON.stringify(config)});`
-    );
-
-    const mergedTree = this.debugTree(
-      mergeTrees(
-        [originalTree, configFile].filter((tree) => tree !== undefined),
-        {
-          annotation: 'ember-theemo:merge-config'
-        }
-      ),
-      'treeForAddon'
-    );
-
-    return mergedTree;
   },
 
   treeForPublic(tree) {

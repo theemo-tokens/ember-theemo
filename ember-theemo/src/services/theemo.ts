@@ -1,9 +1,13 @@
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 import Service from '@ember/service';
 
 import config from 'ember-get-config';
-import theemo from 'ember-theemo/config';
+
+import { extractConfig } from '../utils/utils';
+
+import type { TheemoConfig } from '../types';
 
 export default class TheemoService extends Service {
   @tracked activeTheme?: string;
@@ -11,20 +15,24 @@ export default class TheemoService extends Service {
 
   elements: Map<string, HTMLLinkElement> = new Map();
 
-  constructor() {
-    super();
+  config: TheemoConfig;
+
+  constructor(owner: object) {
+    super(owner);
+
+    this.config = extractConfig(this);
 
     // find loaded themes and disable all
     for (const link of document.querySelectorAll('head > link') as NodeListOf<HTMLLinkElement>) {
       if (link.dataset.theemo) {
         this.elements.set(link.dataset.theemo, link);
-        link.disabled = true;
+        link.disabled = link.dataset.theemo !== this.config.options.defaultTheme;
       }
     }
 
     // officially activate the default
-    if (theemo.options.defaultTheme) {
-      this.setTheme(theemo.options.defaultTheme);
+    if (this.config.options.defaultTheme) {
+      this.setTheme(this.config.options.defaultTheme);
     }
   }
 
@@ -32,7 +40,7 @@ export default class TheemoService extends Service {
    * List of available themes
    */
   get themes(): string[] {
-    return Object.keys(theemo.themes);
+    return Object.keys(this.config.themes);
   }
 
   /**
@@ -52,7 +60,7 @@ export default class TheemoService extends Service {
       this.themes.includes(name)
     );
 
-    return theemo.themes[name].colorSchemes;
+    return this.config.themes[name].colorSchemes;
   }
 
   private async loadTheme(name: string) {
@@ -67,6 +75,7 @@ export default class TheemoService extends Service {
    *
    * @param name theme name
    */
+  @action
   async setTheme(name: string): Promise<void> {
     if (this.activeTheme === name) {
       return;
@@ -74,17 +83,22 @@ export default class TheemoService extends Service {
 
     assert(`Cannot set theme '${name}': theme doesn't exist`, this.themes.includes(name));
 
+    // load new theme fiirst (if not done yet)
     if (!this.elements.has(name)) {
       await this.loadTheme(name);
     }
 
+    // set new theme enabled
+    const element = this.elements.get(name) as HTMLLinkElement;
+
+    element.disabled = false;
+
+    // disable previous theme
     if (this.activeTheme) {
       this.deactivateTheme(this.activeTheme);
     }
 
-    const element = this.elements.get(name) as HTMLLinkElement;
-
-    element.disabled = false;
+    // set new theme the active one
     this.activeTheme = name;
   }
 
@@ -126,27 +140,24 @@ export default class TheemoService extends Service {
   private createLinkElement(theme: string): Promise<HTMLLinkElement> {
     const linkElement = document.createElement('link');
 
+    linkElement.setAttribute('href', `${config.rootURL}theemo/${theme}.css`);
+    linkElement.setAttribute('type', 'text/css');
     linkElement.setAttribute('rel', 'stylesheet');
     linkElement.setAttribute('title', theme);
-    linkElement.setAttribute('href', `${config.rootURL}theemo/${theme}.css`);
     linkElement.dataset.theemo = theme;
     document.head.append(linkElement);
 
     return new Promise((resolve) => {
       const listener = () => {
         linkElement.removeEventListener('load', listener);
+        linkElement.disabled = true;
+
         resolve(linkElement);
       };
 
       linkElement.addEventListener('load', listener);
     });
   }
-
-  // private destroyLinkElement(node: Node) {
-  //   if (node.parentNode) {
-  //     node.parentNode.removeChild(node);
-  //   }
-  // }
 }
 
 declare module '@ember/service' {
