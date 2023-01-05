@@ -1,3 +1,10 @@
 <h2 id="title">Welcome to Ember</h2>
 
+Active Theme:
+{{this.theemo.activeTheme}}
+
+{{#each this.theemo.themes as |theme|}}
+  <button type="button" {{on "click" (fn this.theemo.setTheme theme)}}>{{theme}}</button>
+{{/each}}
+
 {{outlet}}

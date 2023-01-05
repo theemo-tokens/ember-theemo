@@ -1,4 +1,3 @@
-import { settled } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
@@ -51,9 +50,7 @@ module('Unit | Service | Theemo', function (hooks) {
     });
 
     test('switching to ocean theme', async function (this: TestContext, assert) {
-      this.theemo.setTheme('ocean');
-
-      await settled();
+      await this.theemo.setTheme('ocean');
 
       const link = assert.dom('[data-theemo="ocean"]', document.documentElement);
 
@@ -67,9 +64,6 @@ module('Unit | Service | Theemo', function (hooks) {
       const oceanLinkElement = document.querySelector('[data-theemo="ocean"]') as HTMLLinkElement;
 
       assert.notOk(oceanLinkElement.disabled);
-
-      // wait for a browser tick
-      await settled();
 
       const sampleLinkElement = document.querySelector('[data-theemo="sample"]') as HTMLLinkElement;
 
