@@ -2,6 +2,15 @@
 
 
 
+
+## v0.1.2 (2023-01-05)
+
+#### :house: Internal
+* [#36](https://github.com/theemo-tokens/ember-theemo/pull/36) Support Embroider Pipeline ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.1.1 (2022-12-29)
 
 #### :memo: Documentation
