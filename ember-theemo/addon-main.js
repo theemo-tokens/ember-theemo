@@ -11,7 +11,7 @@ const mergeTrees = require('broccoli-merge-trees');
 // eslint-disable-next-line node/no-missing-require
 const { createConfig } = require('ember-theemo/lib');
 // eslint-disable-next-line node/no-missing-require
-const { findThemePackages } = require('ember-theemo/lib/package');
+const { findThemePackages, getThemeFile } = require('ember-theemo/lib/package');
 
 const addonName = require('./package').name;
 
@@ -88,19 +88,19 @@ module.exports = {
       trees.push(originalTree);
     }
 
-    const packages = this.findThemePackages();
+    const packages = findThemePackages(this.project.pkg, this.project.root);
 
     trees.push(
-      ...packages.map((theme) => {
-        if (!theme.package.theemo.file) {
-          throw new Error(
-            `Package '${theme.package.name}' has no 'theemo.file' in their package.json`
-          );
+      ...packages.map((pkg) => {
+        const themeFile = getThemeFile(pkg);
+
+        if (!themeFile) {
+          throw new Error(`Package '${pkg.name}' has no 'theemo.file' in their package.json`);
         }
 
-        const root = path.dirname(this.project.resolveSync(`${theme.package.name}/package.json`));
-        const directory = path.join(root, path.dirname(theme.package.theemo.file));
-        const file = path.basename(theme.package.theemo.file);
+        const root = path.dirname(this.project.resolveSync(`${pkg.name}/package.json`));
+        const directory = path.join(root, path.dirname(themeFile));
+        const file = path.basename(themeFile);
 
         return new Funnel(directory, {
           files: [file],
@@ -108,7 +108,7 @@ module.exports = {
           // I dunno why this next function is required :shrug:
           getDestinationPath(relativePath) {
             if (relativePath === file) {
-              return `./${theme.name}.css`;
+              return `./${file}`;
             }
 
             return relativePath;
