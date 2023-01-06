@@ -8,7 +8,7 @@
   ],
   "theemo": {
     "name": "ocean",
-    "file": "ocean.css"
+    "file": "nested/blue-ocean.css"
   },
   "volta": {
     "extends": "../../package.json"
