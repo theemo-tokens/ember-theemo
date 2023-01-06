@@ -88,6 +88,34 @@ Available options:
 
 - `defaultTheme: string` - the theme loaded by default
 
+#### Embroider
+
+To use `ember-theemo` with embroider, you need to use the provided webpack
+plugin:
+
+```js
+'use strict';
+
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const theemoPlugin = require('ember-theemo/lib/webpack');
+
+module.exports = function (defaults) {
+  const app = new EmberApp(defaults, {
+    // ...
+  });
+
+  const { Webpack } = require('@embroider/webpack');
+
+  return require('@embroider/compat').compatBuild(app, Webpack, {
+    packagerOptions: {
+      webpackConfig: {
+        plugins: [theemoPlugin()]
+      }
+    }
+  });
+};
+```
+
 ### API
 
 Use the `theemo` service to control themes:
