@@ -11,7 +11,7 @@ const mergeTrees = require('broccoli-merge-trees');
 // eslint-disable-next-line node/no-missing-require
 const { createConfig } = require('ember-theemo/lib');
 // eslint-disable-next-line node/no-missing-require
-const { findThemePackages, getThemeFile } = require('ember-theemo/lib/package');
+const { findThemePackages, getThemeFile, getThemeName } = require('ember-theemo/lib/package');
 
 const addonName = require('./package').name;
 
@@ -93,6 +93,7 @@ module.exports = {
     trees.push(
       ...packages.map((pkg) => {
         const themeFile = getThemeFile(pkg);
+        const themeName = getThemeName(pkg);
 
         if (!themeFile) {
           throw new Error(`Package '${pkg.name}' has no 'theemo.file' in their package.json`);
@@ -108,7 +109,7 @@ module.exports = {
           // I dunno why this next function is required :shrug:
           getDestinationPath(relativePath) {
             if (relativePath === file) {
-              return `./${file}`;
+              return `./${themeName}.css`;
             }
 
             return relativePath;
