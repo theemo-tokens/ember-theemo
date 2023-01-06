@@ -3,6 +3,15 @@
 
 
 
+
+## v0.1.3 (2023-01-06)
+
+#### :bug: Bug Fix
+* [#37](https://github.com/theemo-tokens/ember-theemo/pull/37) Fix classic build ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
 ## v0.1.2 (2023-01-05)
 
 #### :house: Internal
