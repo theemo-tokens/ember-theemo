@@ -20,7 +20,7 @@ importers:
       '@glimmer/tracking': ^1.1.2
       '@gossi/config-eslint': ^0.3.0
       '@gossi/config-prettier': ^0.3.0
-      '@gossi/config-targets': ^0.3.0
+      '@gossi/config-targets': ^0.7.0
       '@release-it-plugins/lerna-changelog': ^5.0.0
       '@rollup/plugin-babel': ^6.0.3
       '@rollup/plugin-commonjs': ^24.0.0
@@ -63,7 +63,7 @@ importers:
       '@glimmer/tracking': 1.1.2
       '@gossi/config-eslint': 0.3.0_ahtophbrd2laqvxoyg4c2wfe7i
       '@gossi/config-prettier': 0.3.0_prettier@2.8.1
-      '@gossi/config-targets': 0.3.0
+      '@gossi/config-targets': 0.7.0
       '@release-it-plugins/lerna-changelog': 5.0.0_release-it@15.5.1
       '@rollup/plugin-babel': 6.0.3_zrxplyvfi52whpdwd6wkjjeo5q
       '@rollup/plugin-commonjs': 24.0.0_rollup@3.7.5
@@ -101,7 +101,7 @@ importers:
       '@gossi/config-eslint': ^0.3.0
       '@gossi/config-prettier': ^0.3.0
       '@gossi/config-stylelint': ^0.3.0
-      '@gossi/config-targets': ^0.3.0
+      '@gossi/config-targets': ^0.7.0
       '@gossi/config-template-lint': ^0.3.0
       '@types/eslint': ^8.4.10
       '@types/qunit': ^2.19.3
@@ -153,7 +153,7 @@ importers:
       '@gossi/config-eslint': 0.3.0_ye6557rudq5q2ckq3vhhyxe6de
       '@gossi/config-prettier': 0.3.0_prettier@2.8.1
       '@gossi/config-stylelint': 0.3.0_stylelint@14.16.0
-      '@gossi/config-targets': 0.3.0
+      '@gossi/config-targets': 0.7.0
       '@gossi/config-template-lint': 0.3.0_wd4dqt6xxyifuxsenoyf2crmiy
       '@types/eslint': 8.4.10
       '@types/qunit': 2.19.3
@@ -1992,6 +1992,11 @@ packages:
 
   /@gossi/config-targets/0.3.0:
     resolution: {integrity: sha512-6USn09aV57Nr5l3b6VnVCsFpDPXrvLlDDKvGNdYSZY3Au55JXRWIIRyaFSMTFIQf9381/UZST3AeVmYbLcQcwQ==}
+    engines: {node: 16.* || >= 18.*}
+    dev: true
+
+  /@gossi/config-targets/0.7.0:
+    resolution: {integrity: sha512-X5NKuc09aktU9t7mfQSCWFc80417OcXyN+hacbkSxv+SkYj8NhatOvtL7sFzS4qgrI3vjYcdbDqylXsrWNECkA==}
     engines: {node: 16.* || >= 18.*}
     dev: true
 
