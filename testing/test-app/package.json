@@ -4,9 +4,7 @@
   "description": "Integrates theemo themes into the ember build",
   "private": true,
   "scripts": {
-    "dev": "concurrently 'npm:dev:*'",
-    "dev:package": "pnpm run --filter='ember-theemo' start",
-    "dev:test-app": "ember serve -e test -p 4300",
+    "dev": "ember serve",
     "lint": "concurrently 'npm:lint:*(!fix)'",
     "lint:fix": "concurrently 'npm:lint:*:fix'",
     "lint:hbs": "ember-template-lint .",
@@ -14,7 +12,6 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "tsc --noEmit",
-    "start": "ember serve",
     "test": "ember test"
   },
   "dependencies": {
