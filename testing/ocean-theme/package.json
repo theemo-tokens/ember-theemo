@@ -10,6 +10,9 @@
     "name": "ocean",
     "file": "nested/blue-ocean.css"
   },
+  "engines": {
+    "node": "^20.11.0 || >=22"
+  },
   "volta": {
     "extends": "../../package.json"
   },
