@@ -165,8 +165,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       '@glimmer/validator':
-        specifier: ^0.84.2
-        version: 0.84.3
+        specifier: ^0.94.8
+        version: 0.94.8
       '@gossi/config-eslint':
         specifier: ^0.3.0
         version: 0.3.1(eslint@8.57.1)(prettier@2.8.8)(typescript@4.9.5)
@@ -1074,6 +1074,9 @@ packages:
   '@glimmer/global-context@0.84.3':
     resolution: {integrity: sha512-8Oy9Wg5IZxMEeAnVmzD2NkObf89BeHoFSzJgJROE/deutd3rxg83mvlOez4zBBGYwnTb+VGU2LYRpet92egJjA==}
 
+  '@glimmer/global-context@0.93.4':
+    resolution: {integrity: sha512-Yw9xkDReAcC5oS/hY3PjGrFKRygYFA4pdO7tvuxReoVOyUtjoBOAwHJUileiElERDdMWIMfoLema8Td1mqkjhA==}
+
   '@glimmer/interfaces@0.84.3':
     resolution: {integrity: sha512-dk32ykoNojt0mvEaIW6Vli5MGTbQo58uy3Epj7ahCgTHmWOKuw/0G83f2UmFprRwFx689YTXG38I/vbpltEjzg==}
 
@@ -1106,6 +1109,9 @@ packages:
 
   '@glimmer/validator@0.84.3':
     resolution: {integrity: sha512-RTBV4TokUB0vI31UC7ikpV7lOYpWUlyqaKV//pRC4pexYMlmqnVhkFrdiimB/R1XyNdUOQUmnIAcdic39NkbhQ==}
+
+  '@glimmer/validator@0.94.8':
+    resolution: {integrity: sha512-vTP6hAcrxE5/0dG2w+tHSteXxgWmkBwMzu5ZTxMg+EkqthWl8B5r5skLiviQ6SdKAOBJGhzf6tF4ltHo5y83hQ==}
 
   '@glimmer/vm-babel-plugins@0.84.2':
     resolution: {integrity: sha512-HS2dEbJ3CgXn56wk/5QdudM7rE3vtNMvPIoG7Rrg+GhkGMNxBCIRxOeEF2g520j9rwlA2LAZFpc7MCDMFbTjNA==}
@@ -9302,6 +9308,8 @@ snapshots:
     dependencies:
       '@glimmer/env': 0.1.7
 
+  '@glimmer/global-context@0.93.4': {}
+
   '@glimmer/interfaces@0.84.3':
     dependencies:
       '@simple-dom/interface': 1.4.0
@@ -9357,6 +9365,11 @@ snapshots:
     dependencies:
       '@glimmer/env': 0.1.7
       '@glimmer/global-context': 0.84.3
+
+  '@glimmer/validator@0.94.8':
+    dependencies:
+      '@glimmer/global-context': 0.93.4
+      '@glimmer/interfaces': 0.94.6
 
   '@glimmer/vm-babel-plugins@0.84.2(@babel/core@7.28.0)':
     dependencies:
