@@ -58,7 +58,7 @@
     "@gossi/config-targets": "^0.3.0",
     "@release-it-plugins/lerna-changelog": "^5.0.0",
     "@rollup/plugin-commonjs": "^24.0.0",
-    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-babel": "^6.0.4",
     "@types/node": "^18.11.18",
     "concurrently": "^7.6.0",
     "ember-source": "^4.9.3",

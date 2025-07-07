@@ -79,7 +79,7 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(release-it@15.11.0(encoding@0.1.13))
       '@rollup/plugin-babel':
-        specifier: ^6.0.3
+        specifier: ^6.0.4
         version: 6.0.4(@babel/core@7.28.0)(rollup@3.29.5)
       '@rollup/plugin-commonjs':
         specifier: ^24.0.0
