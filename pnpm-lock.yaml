@@ -144,7 +144,7 @@ importers:
         specifier: ^2.0.0
         version: 2.2.0
       '@ember/test-helpers':
-        specifier: ^2.9.1
+        specifier: ^2.9.6
         version: 2.9.6(@babel/core@7.28.0)(ember-source@4.9.3(@babel/core@7.28.0)(@glimmer/component@1.1.2(@babel/core@7.28.0))(webpack@5.99.9))
       '@embroider/compat':
         specifier: ^2.0.2
