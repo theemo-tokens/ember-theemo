@@ -9810,7 +9810,7 @@ snapshots:
 
   '@types/minimatch@6.0.0':
     dependencies:
-      minimatch: 5.1.6
+      minimatch: 10.0.3
 
   '@types/minimist@1.2.5': {}
 
