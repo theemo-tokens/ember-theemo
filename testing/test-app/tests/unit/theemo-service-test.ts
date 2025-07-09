@@ -12,7 +12,7 @@ module('Unit | Service | Theemo', function (hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function (this: TestContext) {
-    this.theemo = this.owner.lookup('service:theemo') as TheemoService;
+    this.theemo = this.owner.lookup('service:theemo');
   });
 
   module('Default Theme', function () {
@@ -30,6 +30,7 @@ module('Unit | Service | Theemo', function (hooks) {
       // not yet: https://github.com/mainmatter/qunit-dom/pull/1791
       // link.isNotDisabled();
 
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const linkElement = document.querySelector('[data-theemo="sample"]') as HTMLLinkElement;
 
       assert.notOk(linkElement.disabled);
@@ -61,10 +62,12 @@ module('Unit | Service | Theemo', function (hooks) {
       // not yet: https://github.com/mainmatter/qunit-dom/pull/1791
       // link.isNotDisabled();
 
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const oceanLinkElement = document.querySelector('[data-theemo="ocean"]') as HTMLLinkElement;
 
       assert.notOk(oceanLinkElement.disabled);
 
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       const sampleLinkElement = document.querySelector('[data-theemo="sample"]') as HTMLLinkElement;
 
       assert.ok(sampleLinkElement.disabled);

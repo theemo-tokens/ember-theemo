@@ -8,6 +8,7 @@ import Application from 'test-app/app';
 import config from 'test-app/config/environment';
 
 setApplication(Application.create(config.APP));
+// eslint-disable-next-line import-x/namespace
 setup(QUnit.assert);
 setupEmberOnerrorValidation();
 loadTests();

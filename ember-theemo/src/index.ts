@@ -1,4 +1,2 @@
-import TheemoService from './services/theemo';
-
-export { TheemoService };
+export { default as TheemoService } from './services/theemo';
 export * from './types';

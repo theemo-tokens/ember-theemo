@@ -4,9 +4,9 @@ import type { TheemoPackage } from '../types';
 import type { PackageJson } from 'type-fest';
 
 export function findRootPackage(root: string) {
-  const raw = fs.readFileSync(`${root}/package.json`, { encoding: 'utf-8' });
+  const raw = fs.readFileSync(`${root}/package.json`, { encoding: 'utf8' });
 
-  return JSON.parse(raw);
+  return JSON.parse(raw) as PackageJson;
 }
 
 const KEYWORD = 'theemo-theme';
@@ -43,27 +43,34 @@ export function findThemePackages(pkg: PackageJson, root: string): TheemoPackage
   const packages = deps
     .map((name) => {
       try {
-        return require(require.resolve(`${name}/package.json`, { paths: [root] }));
+        // eslint-disable-next-line @typescript-eslint/no-require-imports, unicorn/prefer-module
+        return require(require.resolve(`${name}/package.json`, { paths: [root] })) as PackageJson;
       } catch {
         /**/
       }
+
+      return;
     })
     .filter(Boolean)
-    .filter(isTheemoPackage)
-    .filter(validateTheemoPackage);
+    // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
+    .filter((element) => isTheemoPackage(element as PackageJson))
+    .filter((element) => validateTheemoPackage(element as TheemoPackage));
 
-  return packages;
+  return packages as TheemoPackage[];
 }
 
 export function getThemeName(pkg: TheemoPackage): string {
-  return (pkg.theemo?.name ?? pkg.name) as string;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  return (pkg.theemo?.name ?? pkg.name)!;
 }
 
 export function getThemeFile(pkg: TheemoPackage): string {
-  return (pkg.theemo?.file ?? pkg.main) as string;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  return (pkg.theemo?.file ?? pkg.main)!;
 }
 
 export function getThemeFilePath(pkg: TheemoPackage, root: string): string {
+  // eslint-disable-next-line unicorn/prefer-module
   return require.resolve(`${pkg.name}/${getThemeFile(pkg)}`, {
     paths: [root]
   });
@@ -72,5 +79,5 @@ export function getThemeFilePath(pkg: TheemoPackage, root: string): string {
 export function getThemeFileContents(pkg: TheemoPackage, root: string): string | undefined {
   const file = getThemeFilePath(pkg, root);
 
-  return fs.readFileSync(file, { encoding: 'utf-8' });
+  return fs.readFileSync(file, { encoding: 'utf8' });
 }

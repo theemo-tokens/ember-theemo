@@ -1,16 +1,13 @@
 'use strict';
 
-const path = require('path');
+const path = require('node:path');
 
 const { addonV1Shim } = require('@embroider/addon-shim');
 const BroccoliDebug = require('broccoli-debug');
-const writeFile = require('broccoli-file-creator');
 const Funnel = require('broccoli-funnel');
 const mergeTrees = require('broccoli-merge-trees');
 
-// eslint-disable-next-line node/no-missing-require
 const { createConfig } = require('ember-theemo/lib');
-// eslint-disable-next-line node/no-missing-require
 const { findThemePackages, getThemeFile, getThemeName } = require('ember-theemo/lib/package');
 
 const addonName = require('./package').name;

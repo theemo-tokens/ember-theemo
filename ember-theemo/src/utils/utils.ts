@@ -1,5 +1,4 @@
 import { assert } from '@ember/debug';
-
 import { dependencySatisfies, importSync, macroCondition } from '@embroider/macros';
 
 import type { TheemoConfig } from '../types';
@@ -19,6 +18,7 @@ const { getOwner } = (
 const SCRIPT_ID = 'theemo-config';
 
 export function extractConfig(context: unknown): TheemoConfig {
+  // eslint-disable-next-line unicorn/prefer-query-selector
   let script = document.getElementById(SCRIPT_ID);
 
   if (!script) {
@@ -35,5 +35,5 @@ export function extractConfig(context: unknown): TheemoConfig {
 
   assert('No script tag found containing meta data for ember-theemo', script?.textContent);
 
-  return JSON.parse(script.textContent);
+  return JSON.parse(script.textContent) as TheemoConfig;
 }

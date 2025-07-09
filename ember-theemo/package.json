@@ -51,17 +51,17 @@
     "@embroider/addon-dev": "^7.1.5",
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
-    "@gossi/config-eslint": "^0.3.1",
-    "@gossi/config-prettier": "^0.10.0",
-    "@gossi/config-targets": "^0.10.0",
-    "@release-it-plugins/lerna-changelog": "^5.0.0",
+    "@gossi/config-eslint": "^1.1.2",
+    "@gossi/config-prettier": "^1.0.1",
+    "@gossi/config-targets": "^1.0.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@types/node": "^18.19.115",
     "concurrently": "^7.6.0",
     "ember-source": "^6.5.0",
-    "eslint": "^8.57.1",
-    "prettier": "^2.8.8",
+    "eslint": "^9.30.1",
+    "eslint-plugin-ember": "^12.5.0",
+    "prettier": "^3.6.2",
     "rollup": "^4.44.2",
     "rollup-plugin-multi-input": "^1.5.0",
     "rollup-plugin-ts": "^3.4.5",
@@ -74,7 +74,7 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./addon-main.js": "./addon-main.js",
+    "./addon-main.cjs": "./addon-main.cjs",
     "./lib": {
       "import": "./dist/lib/index.js",
       "require": "./dist/lib/index.cjs"
@@ -89,7 +89,7 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "main": "addon-main.js",
+    "main": "addon-main.cjs",
     "type": "addon",
     "version": 2,
     "app-js": {
