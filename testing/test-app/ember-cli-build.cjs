@@ -1,9 +1,10 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-// eslint-disable-next-line node/no-missing-require
+
 const theemoPlugin = require('ember-theemo/lib/webpack');
 
+// eslint-disable-next-line unicorn/no-anonymous-default-export
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     'ember-cli-babel': {

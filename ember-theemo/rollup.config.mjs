@@ -1,9 +1,11 @@
-import ts from 'rollup-plugin-ts';
 import { Addon } from '@embroider/addon-dev/rollup';
-import { targets } from '@gossi/config-targets';
+
 import commonjs from '@rollup/plugin-commonjs';
-import multiInput from 'rollup-plugin-multi-input';
 import { defineConfig } from 'rollup';
+import multiInput from 'rollup-plugin-multi-input';
+import ts from 'rollup-plugin-ts';
+
+import { targets } from '@gossi/config-targets';
 
 const addon = new Addon({
   srcDir: 'src',

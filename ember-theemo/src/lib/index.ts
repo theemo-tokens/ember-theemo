@@ -12,10 +12,10 @@ export function createConfig(options: TheemoOptions, packages: TheemoPackage[]):
   const themes: Record<string, ThemeFeatures> = {};
 
   for (const pkg of packages) {
-    const theemo: TheemoDescriptor = pkg.theemo || {};
+    const theemo: TheemoDescriptor = pkg.theemo ?? {};
     const name = getThemeName(pkg);
     const features: ThemeFeatures = {
-      colorSchemes: theemo.colorSchemes || []
+      colorSchemes: theemo.colorSchemes ?? []
     };
 
     themes[name] = features;

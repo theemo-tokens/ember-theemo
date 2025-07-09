@@ -14,7 +14,7 @@ export default class TheemoService extends Service {
   @tracked activeTheme?: string;
   @tracked activeColorScheme?: string;
 
-  elements: Map<string, HTMLLinkElement> = new Map();
+  elements = new Map<string, HTMLLinkElement>();
 
   config: TheemoConfig;
 
@@ -24,16 +24,25 @@ export default class TheemoService extends Service {
     this.config = extractConfig(this);
 
     // find loaded themes and disable all
-    for (const link of document.querySelectorAll('head > link') as NodeListOf<HTMLLinkElement>) {
+    for (const link of document.querySelectorAll('head > link')) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (link.dataset.theemo) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
         this.elements.set(link.dataset.theemo, link);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         link.disabled = link.dataset.theemo !== this.config.options.defaultTheme;
       }
     }
 
     // officially activate the default
     if (this.config.options.defaultTheme) {
-      this.setTheme(this.config.options.defaultTheme);
+      void this.setTheme(this.config.options.defaultTheme);
     }
   }
 
@@ -90,7 +99,8 @@ export default class TheemoService extends Service {
     }
 
     // set new theme enabled
-    const element = this.elements.get(name) as HTMLLinkElement;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const element = this.elements.get(name)!;
 
     element.disabled = false;
 
@@ -127,7 +137,8 @@ export default class TheemoService extends Service {
     this.clearClassesForTheme(name);
 
     // disable link
-    (this.elements.get(name) as HTMLLinkElement).disabled = true;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    this.elements.get(name)!.disabled = true;
   }
 
   private clearClassesForTheme(name: string) {
@@ -141,6 +152,7 @@ export default class TheemoService extends Service {
   private createLinkElement(theme: string): Promise<HTMLLinkElement> {
     const linkElement = document.createElement('link');
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     linkElement.setAttribute('href', `${config.rootURL}theemo/${theme}.css`);
     linkElement.setAttribute('type', 'text/css');
     linkElement.setAttribute('rel', 'stylesheet');
