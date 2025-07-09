@@ -1,9 +1,6 @@
 {
   "private": true,
   "repository": "https://github.com/theemo-tokens/ember-theemo",
-  "volta": {
-    "node": "18.12.1"
-  },
   "scripts": {
     "build": "turbo run build",
     "clean": "pnpm run '/^clean:(?!.*(fix)).*$/'",
