@@ -1,8 +1,7 @@
 {
   "name": "test-app",
-  "version": "0.1.0",
-  "description": "Integrates theemo themes into the ember build",
   "private": true,
+  "description": "Integrates theemo themes into the ember build",
   "scripts": {
     "dev": "ember serve",
     "lint": "concurrently 'npm:lint:*(!fix)'",

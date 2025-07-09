@@ -27,7 +27,6 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "tsc --noEmit",
     "prepublishOnly": "pnpm build",
-    "release": "release-it",
     "start": "rollup --config --bundleConfigAsCjs --watch"
   },
   "dependencies": {
@@ -63,7 +62,6 @@
     "ember-source": "^6.5.0",
     "eslint": "^8.57.1",
     "prettier": "^2.8.8",
-    "release-it": "^15.11.0",
     "rollup": "^4.44.2",
     "rollup-plugin-multi-input": "^1.5.0",
     "rollup-plugin-ts": "^3.4.5",
@@ -96,21 +94,6 @@
     "version": 2,
     "app-js": {
       "./services/theemo.js": "./dist/_app_/services/theemo.js"
-    }
-  },
-  "release-it": {
-    "plugins": {
-      "@release-it-plugins/lerna-changelog": {
-        "infile": "CHANGELOG.md"
-      }
-    },
-    "git": {
-      "tagName": "v${version}",
-      "commitMessage": "release v${version}"
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "GITHUB_AUTH"
     }
   }
 }
