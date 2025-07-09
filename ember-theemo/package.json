@@ -74,7 +74,7 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./addon-main.js": "./addon-main.cjs",
+    "./addon-main.cjs": "./addon-main.cjs",
     "./lib": {
       "import": "./dist/lib/index.js",
       "require": "./dist/lib/index.cjs"
@@ -89,7 +89,7 @@
     "edition": "octane"
   },
   "ember-addon": {
-    "main": "addon-main.js",
+    "main": "addon-main.cjs",
     "type": "addon",
     "version": 2,
     "app-js": {
