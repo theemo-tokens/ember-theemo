@@ -76,8 +76,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(eslint@8.57.1)(prettier@2.8.8)(typescript@5.8.3)
       '@gossi/config-prettier':
-        specifier: ^0.3.1
-        version: 0.3.1(prettier@2.8.8)
+        specifier: ^0.10.0
+        version: 0.10.0(prettier@2.8.8)
       '@gossi/config-targets':
         specifier: ^0.3.1
         version: 0.3.1
@@ -177,8 +177,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(eslint@8.57.1)(prettier@2.8.8)(typescript@5.8.3)
       '@gossi/config-prettier':
-        specifier: ^0.3.1
-        version: 0.3.1(prettier@2.8.8)
+        specifier: ^0.10.0
+        version: 0.10.0(prettier@2.8.8)
       '@gossi/config-stylelint':
         specifier: ^0.3.1
         version: 0.3.1(stylelint@14.16.1)
@@ -1124,11 +1124,11 @@ packages:
       typescript:
         optional: true
 
-  '@gossi/config-prettier@0.3.1':
-    resolution: {integrity: sha512-dWUcXEEHRxC7lW4mprGO2kEdlB4W4v3MU+Bn9QJeyHwNEsgwyHQ39Xm4iyoniy/KXhnV3/wx6rTRaCxegmEETQ==}
-    engines: {node: 16.* || >= 18.*}
+  '@gossi/config-prettier@0.10.0':
+    resolution: {integrity: sha512-91qNZ48Ug8L3NTHkDXAxwuqEUAvB0K9PMDNhQDJc+/g7fdATehgDYPfhMeIJ9yiBsTKAp4vWdy8ycQPoxAULIg==}
+    engines: {node: '>= 20.*'}
     peerDependencies:
-      prettier: ^2.7.1
+      prettier: ^3.0.0
 
   '@gossi/config-stylelint@0.3.1':
     resolution: {integrity: sha512-mmZBCOPMeSHQGXM/Q973UHT8c4KBHsbRJYRUJmNN9IeAy8L6fmbommgxoU0FNZefyyfifpWqJiJep/i3G9te+A==}
@@ -5946,6 +5946,12 @@ packages:
     resolution: {integrity: sha512-GbK2cP9nraSSUF9N2XwUwqfzlAFlMNYYl+ShE/V+H8a9uNl/oUqB1w2EL54Jh0OlyRSd8RfWYJ3coVS4TROP2w==}
     engines: {node: '>=6.0.0'}
 
+  prettier-plugin-ember-template-tag@2.0.6:
+    resolution: {integrity: sha512-fo40XXhSEvpi5BQcG/EdKkij9M0s1KiIhPyXHpnAqHOwsd883fJ9YtTkz2RwzMwKU4XtVQ0bWNWXy+vgjlaMcQ==}
+    engines: {node: 18.* || >= 20}
+    peerDependencies:
+      prettier: '>= 3.0.0'
+
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
@@ -8941,9 +8947,12 @@ snapshots:
       - prettier
       - supports-color
 
-  '@gossi/config-prettier@0.3.1(prettier@2.8.8)':
+  '@gossi/config-prettier@0.10.0(prettier@2.8.8)':
     dependencies:
       prettier: 2.8.8
+      prettier-plugin-ember-template-tag: 2.0.6(prettier@2.8.8)
+    transitivePeerDependencies:
+      - supports-color
 
   '@gossi/config-stylelint@0.3.1(stylelint@14.16.1)':
     dependencies:
@@ -14773,6 +14782,14 @@ snapshots:
   prettier-linter-helpers@1.0.0:
     dependencies:
       fast-diff: 1.3.0
+
+  prettier-plugin-ember-template-tag@2.0.6(prettier@2.8.8):
+    dependencies:
+      '@babel/core': 7.28.0(supports-color@8.1.1)
+      content-tag: 3.1.3
+      prettier: 2.8.8
+    transitivePeerDependencies:
+      - supports-color
 
   prettier@2.8.8: {}
 

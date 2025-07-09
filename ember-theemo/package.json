@@ -53,7 +53,7 @@
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
     "@gossi/config-eslint": "^0.3.1",
-    "@gossi/config-prettier": "^0.3.1",
+    "@gossi/config-prettier": "^0.10.0",
     "@gossi/config-targets": "^0.3.1",
     "@release-it-plugins/lerna-changelog": "^5.0.0",
     "@rollup/plugin-babel": "^6.0.4",
