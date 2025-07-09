@@ -4,8 +4,8 @@
   "description": "Integrates theemo themes into the ember build",
   "scripts": {
     "dev": "ember serve",
-    "lint": "concurrently 'npm:lint:*(!fix)'",
-    "lint:fix": "concurrently 'npm:lint:*:fix'",
+    "lint": "pnpm run '/^lint:(?!.*(fix)).*$/'",
+    "lint:fix": "pnpm run '/^lint:[^:]*:fix/'",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
@@ -38,7 +38,6 @@
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
     "broccoli-asset-rev": "^3.0.0",
-    "concurrently": "^7.6.0",
     "ember-auto-import": "^2.10.0",
     "ember-cli": "~6.5.0",
     "ember-cli-babel": "^8.2.0",
