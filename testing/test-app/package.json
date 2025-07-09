@@ -32,7 +32,7 @@
     "@gossi/config-eslint": "^0.3.1",
     "@gossi/config-prettier": "^0.10.0",
     "@gossi/config-stylelint": "^0.3.1",
-    "@gossi/config-targets": "^0.3.1",
+    "@gossi/config-targets": "^0.10.0",
     "@gossi/config-template-lint": "^0.3.1",
     "@types/eslint": "^8.56.12",
     "@types/qunit": "^2.19.12",
