@@ -6,10 +6,8 @@ const theemoPlugin = require('ember-theemo/lib/webpack');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
-    'ember-cli-swc-minifier': {
-      enabled: true,
-
-      exclude: ['vendor.js']
+    'ember-cli-babel': {
+      enableTypeScriptTransform: true
     },
 
     // Add options here
@@ -25,9 +23,9 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  const { maybeEmbroider } = require('@embroider/test-setup');
+  const { Webpack } = require('@embroider/webpack');
 
-  return maybeEmbroider(app, {
+  return require('@embroider/compat').compatBuild(app, Webpack, {
     packagerOptions: {
       webpackConfig: {
         plugins: [theemoPlugin()]

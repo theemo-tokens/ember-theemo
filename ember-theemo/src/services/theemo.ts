@@ -8,6 +8,7 @@ import config from 'ember-get-config';
 import { extractConfig } from '../utils/utils';
 
 import type { TheemoConfig } from '../types';
+import type Owner from '@ember/owner';
 
 export default class TheemoService extends Service {
   @tracked activeTheme?: string;
@@ -17,7 +18,7 @@ export default class TheemoService extends Service {
 
   config: TheemoConfig;
 
-  constructor(owner: object) {
+  constructor(owner: Owner) {
     super(owner);
 
     this.config = extractConfig(this);
