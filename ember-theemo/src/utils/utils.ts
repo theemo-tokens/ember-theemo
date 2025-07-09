@@ -1,9 +1,9 @@
-import { dependencySatisfies, importSync, macroCondition } from '@embroider/macros';
 import { assert } from '@ember/debug';
+
+import { dependencySatisfies, importSync, macroCondition } from '@embroider/macros';
 
 import type { TheemoConfig } from '../types';
 import type Application from '@ember/application';
-
 import type { getOwner as getOwnerType } from '@ember/owner';
 
 interface OwnerModule {
@@ -24,6 +24,7 @@ export function extractConfig(context: unknown): TheemoConfig {
   if (!script) {
     // in case the app runs in shadow DOM, we need to query the script from the
     // shadow root
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const rootElement = (getOwner(context) as unknown as Application).rootElement;
 
