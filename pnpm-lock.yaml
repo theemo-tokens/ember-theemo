@@ -82,8 +82,8 @@ importers:
         specifier: ^0.10.0
         version: 0.10.0(prettier@2.8.8)
       '@gossi/config-targets':
-        specifier: ^0.3.1
-        version: 0.3.1
+        specifier: ^0.10.0
+        version: 0.10.0
       '@release-it-plugins/lerna-changelog':
         specifier: ^5.0.0
         version: 5.0.0(release-it@15.11.0(encoding@0.1.13))
@@ -183,8 +183,8 @@ importers:
         specifier: ^0.3.1
         version: 0.3.1(stylelint@14.16.1)
       '@gossi/config-targets':
-        specifier: ^0.3.1
-        version: 0.3.1
+        specifier: ^0.10.0
+        version: 0.10.0
       '@gossi/config-template-lint':
         specifier: ^0.3.1
         version: 0.3.1(ember-template-lint@7.9.1)(prettier@2.8.8)
@@ -1135,6 +1135,10 @@ packages:
     engines: {node: 16.* || >= 18.*}
     peerDependencies:
       stylelint: ^14.11.0
+
+  '@gossi/config-targets@0.10.0':
+    resolution: {integrity: sha512-j2ugBICTs1Rbv7kPIamKSTzKaVhAwnOoufSxZT48MM0DanvHDR/6AVf9mXSxhUzfzPLsYS2ysoWXJXNZo9U6jw==}
+    engines: {node: '>= 20.*'}
 
   '@gossi/config-targets@0.3.1':
     resolution: {integrity: sha512-SHGAQP5dETBCShBqn6/1DuTSBnnBNvhQlcpLX/FjsSQjog1soFPd4VCs5AHZ11LMDoJQTwxrnhUL1pygSUeCwg==}
@@ -9198,6 +9202,8 @@ snapshots:
       stylelint-config-standard: 29.0.0(stylelint@14.16.1)
       stylelint-no-unsupported-browser-features: 6.1.0(stylelint@14.16.1)
       stylelint-order: 6.0.4(stylelint@14.16.1)
+
+  '@gossi/config-targets@0.10.0': {}
 
   '@gossi/config-targets@0.3.1': {}
 
