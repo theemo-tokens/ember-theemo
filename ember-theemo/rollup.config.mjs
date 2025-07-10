@@ -18,7 +18,7 @@ export default defineConfig([
     // You can augment this if you need to.
     output: addon.output(),
 
-    external: ['node:fs', 'node:process'],
+    external: ['node:fs', 'node:process', 'node:crypto', 'node:crypto'],
 
     plugins: [
       // These are the modules that users should be able to import from your
@@ -65,7 +65,14 @@ export default defineConfig([
       entryFileNames: '[name].cjs',
       preserveModules: true
     },
-    external: ['unplugin', 'node:fs', 'node:process'],
+    external: [
+      'unplugin',
+      'node:fs',
+      'node:process',
+      'node:crypto',
+      'node:crypto',
+      '@theemo/theme'
+    ],
     plugins: [
       multiInput.default(), // bcz of --bundleConfigAsCjs (we get a weird import)
       ts({

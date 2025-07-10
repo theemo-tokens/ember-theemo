@@ -1,180 +1,85 @@
 import { tracked } from '@glimmer/tracking';
-import { assert } from '@ember/debug';
-import { action } from '@ember/object';
 import Service from '@ember/service';
 
-import config from 'ember-get-config';
+import { ThemeManager } from '@theemo/theme';
 
-import { extractConfig } from '../utils/utils';
-
-import type { TheemoConfig } from '../types';
 import type Owner from '@ember/owner';
+import type { FeatureValue, FeatureWithValue, Theme } from '@theemo/theme';
 
+/**
+ * Manage Themes in Ember
+ */
 export default class TheemoService extends Service {
-  @tracked activeTheme?: string;
-  @tracked activeColorScheme?: string;
+  @tracked private internalActiveTheme?: Theme;
+  @tracked private internalFeatures: FeatureWithValue[] = [];
 
-  elements = new Map<string, HTMLLinkElement>();
-
-  config: TheemoConfig;
+  #manager: ThemeManager;
 
   constructor(owner: Owner) {
     super(owner);
+    this.#manager = new ThemeManager({
+      themeChanged: (theme: Theme) => {
+        this.internalActiveTheme = theme;
 
-    this.config = extractConfig(this);
-
-    // find loaded themes and disable all
-    for (const link of document.querySelectorAll('head > link')) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      if (link.dataset.theemo) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-        this.elements.set(link.dataset.theemo, link);
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        link.disabled = link.dataset.theemo !== this.config.options.defaultTheme;
+        this.#updateFeatures();
+      },
+      featureChanged: () => {
+        this.#updateFeatures();
       }
-    }
-
-    // officially activate the default
-    if (this.config.options.defaultTheme) {
-      void this.setTheme(this.config.options.defaultTheme);
-    }
-  }
-
-  /**
-   * List of available themes
-   */
-  get themes(): string[] {
-    return Object.keys(this.config.themes);
-  }
-
-  /**
-   * List of available color schemes for the active theme
-   */
-  get colorSchemes(): string[] {
-    if (this.activeTheme) {
-      return this.getColorSchemes(this.activeTheme);
-    }
-
-    return [];
-  }
-
-  getColorSchemes(name: string): string[] {
-    assert(
-      `Cannot find color schemes for theme '${name}': theme doesn't exist`,
-      this.themes.includes(name)
-    );
-
-    return this.config.themes[name].colorSchemes;
-  }
-
-  private async loadTheme(name: string) {
-    const element = await this.createLinkElement(name);
-
-    this.elements.set(name, element);
-  }
-
-  /**
-   * Set the _main_ theme at the body.
-   * Method name is very likely to change
-   *
-   * @param name theme name
-   */
-  @action
-  async setTheme(name: string): Promise<void> {
-    if (this.activeTheme === name) {
-      return;
-    }
-
-    assert(`Cannot set theme '${name}': theme doesn't exist`, this.themes.includes(name));
-
-    // load new theme fiirst (if not done yet)
-    if (!this.elements.has(name)) {
-      await this.loadTheme(name);
-    }
-
-    // set new theme enabled
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const element = this.elements.get(name)!;
-
-    element.disabled = false;
-
-    // disable previous theme
-    if (this.activeTheme) {
-      this.deactivateTheme(this.activeTheme);
-    }
-
-    // set new theme the active one
-    this.activeTheme = name;
-  }
-
-  setColorScheme(name: string | undefined): void {
-    if (!this.activeTheme) {
-      return;
-    }
-
-    this.clearClassesForTheme(this.activeTheme);
-
-    if (typeof name === 'string') {
-      assert(
-        `Cannot set color scheme '${name}': color scheme doesn't exist`,
-        this.colorSchemes.includes(name)
-      );
-
-      document.body.classList.add(`${this.activeTheme}-${name}`);
-    }
-
-    this.activeColorScheme = name;
-  }
-
-  private deactivateTheme(name: string) {
-    // clear classes
-    this.clearClassesForTheme(name);
-
-    // disable link
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    this.elements.get(name)!.disabled = true;
-  }
-
-  private clearClassesForTheme(name: string) {
-    for (const className of document.body.classList.values()) {
-      if (className.startsWith(name)) {
-        document.body.classList.remove(className);
-      }
-    }
-  }
-
-  private createLinkElement(theme: string): Promise<HTMLLinkElement> {
-    const linkElement = document.createElement('link');
-
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    linkElement.setAttribute('href', `${config.rootURL}theemo/${theme}.css`);
-    linkElement.setAttribute('type', 'text/css');
-    linkElement.setAttribute('rel', 'stylesheet');
-    linkElement.setAttribute('title', theme);
-    linkElement.dataset.theemo = theme;
-    document.head.append(linkElement);
-
-    return new Promise((resolve) => {
-      const listener = () => {
-        linkElement.removeEventListener('load', listener);
-        linkElement.disabled = true;
-
-        resolve(linkElement);
-      };
-
-      linkElement.addEventListener('load', listener);
     });
-  }
-}
 
-declare module '@ember/service' {
-  interface Registry {
-    theemo: TheemoService;
+    this.internalActiveTheme = this.#manager.activeTheme;
+    this.#updateFeatures();
   }
+
+  #updateFeatures = () => {
+    this.internalFeatures = this.#manager.features;
+  };
+
+  /**
+   * List of all available themes
+   */
+  get themes(): Theme[] {
+    return this.#manager.themes;
+  }
+
+  /**
+   * The active theme
+   */
+  get activeTheme(): Theme | undefined {
+    return this.internalActiveTheme;
+  }
+
+  /** All features for the active theme */
+  get features(): FeatureWithValue[] {
+    return this.internalFeatures;
+  }
+
+  /**
+   * Set a feature to the given value
+   *
+   * @param featureName the feature to change
+   * @param value the value for that feature
+   */
+  setFeature = (featureName: string, value: FeatureValue): void => {
+    this.#manager.setFeature(featureName, value);
+  };
+
+  /**
+   * Unsets a feature. Reverts to its default.
+   *
+   * @param featureName the feature to unset
+   */
+  unsetFeature = (featureName: string): void => {
+    this.#manager.unsetFeature(featureName);
+  };
+
+  /**
+   * Swithes to another theme
+   *
+   * @param name the name of the new theme
+   */
+  switchTheme = async (name: string): Promise<void> => {
+    await this.#manager.switchTheme(name);
+  };
 }

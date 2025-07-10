@@ -2,7 +2,7 @@ import process from 'node:process';
 
 import { createUnplugin } from 'unplugin';
 
-import { findRootPackage, findThemePackages, getThemeFileContents, getThemeName } from './package';
+import { findRootPackage, findThemePackages, getThemeFileContents } from './package';
 
 export function findRoot(meta: unknown): string {
   if (meta === 'webpack') {
@@ -25,10 +25,17 @@ export const unplugin = createUnplugin((_options: unknown, meta: unknown) => {
     buildStart() {
       for (const pkg of themePackages) {
         const source = getThemeFileContents(pkg, root);
+        const filename = pkg.theemo.name;
+
+        // if (pkg.theemo.filePath) {
+        //   const hash = await fingerprintFile(pkg.theemo.filePath);
+
+        //   filename += `-${hash}`;
+        // }
 
         this.emitFile({
           type: 'asset',
-          fileName: `/theemo/${getThemeName(pkg)}.css`,
+          fileName: `/theemo/${filename}.css`,
           source
         });
       }
