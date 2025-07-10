@@ -1,6 +1,6 @@
 {
   "name": "ember-theemo",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "Integrates theemo themes into the ember build",
   "keywords": [
     "ember-addon"
