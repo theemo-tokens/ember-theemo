@@ -200,6 +200,9 @@ importers:
       broccoli-asset-rev:
         specifier: ^3.0.0
         version: 3.0.0
+      decorator-transforms:
+        specifier: ^2.3.0
+        version: 2.3.0(@babel/core@7.28.0)
       ember-auto-import:
         specifier: ^2.10.0
         version: 2.10.0(webpack@5.100.0)

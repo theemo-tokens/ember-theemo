@@ -39,6 +39,7 @@
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
     "broccoli-asset-rev": "^3.0.0",
+    "decorator-transforms": "^2.3.0",
     "ember-auto-import": "^2.10.0",
     "ember-cli": "~6.5.0",
     "ember-cli-babel": "^8.2.0",
