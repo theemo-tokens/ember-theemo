@@ -8,12 +8,22 @@ const theemoPlugin = require('ember-theemo/lib/webpack');
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     'ember-cli-babel': {
-      enableTypeScriptTransform: true
+      enableTypeScriptTransform: true,
+      // turn off the old transform
+      // (for this to work when using Embroider you need https://github.com/embroider-build/embroider/pull/1673)
+      disableDecoratorTransforms: true
+    },
+
+    babel: {
+      plugins: [
+        // add the new transform.
+        require.resolve('decorator-transforms')
+      ]
     },
 
     // Add options here
     theemo: {
-      defaultTheme: 'sample'
+      defaultTheme: 'ocean'
     }
   });
 
@@ -24,9 +34,9 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  const { Webpack } = require('@embroider/webpack');
+  const { maybeEmbroider } = require('@embroider/test-setup');
 
-  return require('@embroider/compat').compatBuild(app, Webpack, {
+  return maybeEmbroider(app, {
     packagerOptions: {
       webpackConfig: {
         plugins: [theemoPlugin()]

@@ -2,8 +2,6 @@
 'use strict';
 
 const getChannelURL = require('ember-source-channel-url');
-
-// eslint-disable-next-line n/no-missing-require
 const { embroiderSafe, embroiderOptimized } = require('@embroider/test-setup');
 
 // eslint-disable-next-line unicorn/no-anonymous-default-export
@@ -15,7 +13,8 @@ module.exports = async function () {
         name: 'ember-lts-3.28',
         npm: {
           devDependencies: {
-            'ember-source': '~3.28.0'
+            'ember-source': '~3.28.0',
+            'ember-cli': '^4.12.0'
           }
         }
       },

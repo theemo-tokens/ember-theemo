@@ -1,28 +1,23 @@
-import { getThemeName } from './package';
+import type { PluginOptions } from './config';
+import type { ResolvedTheemoPackage } from './package';
+import type { TheemoRuntimeConfig } from '@theemo/theme';
 
-import type {
-  TheemoConfig,
-  TheemoDescriptor,
-  TheemoOptions,
-  TheemoPackage,
-  ThemeFeatures
-} from '../types';
-
-export function createConfig(options: TheemoOptions, packages: TheemoPackage[]): TheemoConfig {
-  const themes: Record<string, ThemeFeatures> = {};
-
-  for (const pkg of packages) {
-    const theemo: TheemoDescriptor = pkg.theemo ?? {};
-    const name = getThemeName(pkg);
-    const features: ThemeFeatures = {
-      colorSchemes: theemo.colorSchemes ?? []
-    };
-
-    themes[name] = features;
-  }
+export function createConfig(
+  options: PluginOptions & { fingerprint?: boolean },
+  packages: ResolvedTheemoPackage[]
+): TheemoRuntimeConfig {
+  const themes = packages.map((pkg) => pkg.theemo);
 
   return {
     options,
-    themes
+    themes: themes.map((t) => {
+      const filename = t.name;
+
+      return {
+        name: t.name,
+        features: t.features,
+        filename
+      };
+    })
   };
 }

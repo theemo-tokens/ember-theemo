@@ -31,13 +31,13 @@
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.10.0",
-    "@embroider/macros": "^1.18.0",
+    "@theemo/theme": "^1.0.1",
     "broccoli-debug": "^0.6.5",
     "broccoli-file-creator": "^2.1.1",
     "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
     "ember-get-config": "^2.1.1",
-    "unplugin": "^1.16.1"
+    "unplugin": "^2.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",

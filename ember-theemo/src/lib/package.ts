@@ -1,7 +1,19 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable unicorn/prefer-module */
 import fs from 'node:fs';
 
-import type { TheemoPackage } from '../types';
+import { isTheemoPackage, validateTheemoPackage } from '@theemo/theme';
+
+import type { PackageTheme, TheemoPackage } from '@theemo/theme';
 import type { PackageJson } from 'type-fest';
+
+export interface ResolvedTheme extends PackageTheme {
+  filePath?: string;
+}
+
+export type ResolvedTheemoPackage = TheemoPackage & {
+  theemo?: ResolvedTheme;
+};
 
 export function findRootPackage(root: string) {
   const raw = fs.readFileSync(`${root}/package.json`, { encoding: 'utf8' });
@@ -9,71 +21,61 @@ export function findRootPackage(root: string) {
   return JSON.parse(raw) as PackageJson;
 }
 
-const KEYWORD = 'theemo-theme';
-
-function isTheemoPackage(pkg: PackageJson) {
-  return pkg.keywords?.includes(KEYWORD);
+export function getThemeFilePath(pkg: TheemoPackage, root: string): string {
+  return require.resolve(`${pkg.name}/${pkg.theemo.file}`, {
+    paths: [root]
+  });
 }
 
-function validateTheemoPackage(pkg: TheemoPackage) {
-  const { theemo } = pkg;
+function loadTheme(pkg: TheemoPackage, root: string) {
+  const filePath = getThemeFilePath(pkg, root);
 
-  if (!theemo?.file && !pkg.main) {
-    console.warn(
-      `Cannot find theme file in ${pkg.name}. Neither "main" nor "theemo.file" was given.`
-    );
+  if (filePath) {
+    const resolvedFilePath = require.resolve(filePath, { paths: [root] });
 
-    return false;
+    pkg.theemo = {
+      ...pkg.theemo,
+      filePath: resolvedFilePath
+    } as ResolvedTheme;
   }
 
-  if (!(theemo?.name || pkg.name)) {
-    console.warn(
-      `Cannot find a theme name in ${pkg.name}. Neither "name" nor "theemo.name" was given.`
-    );
-  }
-
-  return true;
+  return pkg as ResolvedTheemoPackage;
 }
 
-export function findThemePackages(pkg: PackageJson, root: string): TheemoPackage[] {
+export function findThemePackages(pkg: PackageJson, root: string): ResolvedTheemoPackage[] {
   const { dependencies = {}, devDependencies = {} } = pkg;
 
   const deps = [...Object.keys(dependencies), ...Object.keys(devDependencies)];
+  const packages = deps.map((name) => {
+    try {
+      return require(require.resolve(`${name}/package.json`, { paths: [root] })) as PackageJson;
+    } catch {
+      /**/
+    }
 
-  const packages = deps
-    .map((name) => {
-      try {
-        // eslint-disable-next-line @typescript-eslint/no-require-imports, unicorn/prefer-module
-        return require(require.resolve(`${name}/package.json`, { paths: [root] })) as PackageJson;
-      } catch {
-        /**/
-      }
-
-      return;
-    })
-    .filter(Boolean)
-    // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
-    .filter((element) => isTheemoPackage(element as PackageJson))
-    .filter((element) => validateTheemoPackage(element as TheemoPackage));
-
-  return packages as TheemoPackage[];
-}
-
-export function getThemeName(pkg: TheemoPackage): string {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return (pkg.theemo?.name ?? pkg.name)!;
-}
-
-export function getThemeFile(pkg: TheemoPackage): string {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return (pkg.theemo?.file ?? pkg.main)!;
-}
-
-export function getThemeFilePath(pkg: TheemoPackage, root: string): string {
-  // eslint-disable-next-line unicorn/prefer-module
-  return require.resolve(`${pkg.name}/${getThemeFile(pkg)}`, {
-    paths: [root]
+    return;
   });
+
+  const themePackages = packages
+    .filter(Boolean)
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    .filter((element) => isTheemoPackage(element!));
+
+  const resolvedPackages = [];
+
+  for (const themePkg of themePackages) {
+    const validation = validateTheemoPackage(themePkg);
+
+    if (validation.success) {
+      resolvedPackages.push(loadTheme(themePkg, root));
+    } else {
+      console.warn(
+        `[Theemo] Ignoring Theme '${themePkg.name}' due to validation errors: \n\n  - ${validation.errors.join('\n  - ')}\n`
+      );
+    }
+  }
+
+  return resolvedPackages;
 }
 
 export function getThemeFileContents(pkg: TheemoPackage, root: string): string | undefined {
