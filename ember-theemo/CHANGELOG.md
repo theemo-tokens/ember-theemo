@@ -2,6 +2,17 @@
 
 ## Release (2025-07-10)
 
+* ember-theemo 1.0.1 (patch)
+
+#### :bug: Bug Fix
+* `ember-theemo`
+  * [#67](https://github.com/theemo-tokens/ember-theemo/pull/67) Fix addon main file for publish ([@gossi](https://github.com/gossi))
+
+#### Committers: 1
+- Thomas Gossmann ([@gossi](https://github.com/gossi))
+
+## Release (2025-07-10)
+
 * ember-theemo 1.0.0 (major)
 
 #### :boom: Breaking Change
