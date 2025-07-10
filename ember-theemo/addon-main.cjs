@@ -78,43 +78,43 @@ module.exports = {
 
       return tags.join('\n');
     }
+  },
+
+  treeForPublic(tree) {
+    const originalTree = this._super(tree);
+
+    // only run for root app
+    if (this.parentAddon) return originalTree;
+
+    const trees = [];
+
+    if (originalTree) {
+      trees.push(originalTree);
+    }
+
+    const packages = findThemePackages(this.project.pkg, this.project.root);
+
+    trees.push(
+      ...packages.map((pkg) => {
+        const root = path.dirname(this.project.resolveSync(`${pkg.name}/package.json`));
+        const directory = path.join(root, path.dirname(pkg.theemo.file));
+        const file = path.basename(pkg.theemo.file);
+
+        return new Funnel(directory, {
+          files: [file],
+          destDir: '/theemo',
+          // I dunno why this next function is required :shrug:
+          getDestinationPath(relativePath) {
+            if (relativePath === file) {
+              return `./${pkg.theemo.name}.css`;
+            }
+
+            return relativePath;
+          }
+        });
+      })
+    );
+
+    return this.debugTree(mergeTrees(trees), 'treeForPublic');
   }
-
-  // treeForPublic(tree) {
-  //   const originalTree = this._super(tree);
-
-  //   // only run for root app
-  //   if (this.parentAddon) return originalTree;
-
-  //   const trees = [];
-
-  //   if (originalTree) {
-  //     trees.push(originalTree);
-  //   }
-
-  //   const packages = findThemePackages(this.project.pkg, this.project.root);
-
-  //   trees.push(
-  //     ...packages.map((pkg) => {
-  //       const root = path.dirname(this.project.resolveSync(`${pkg.name}/package.json`));
-  //       const directory = path.join(root, path.dirname(pkg.theemo.file));
-  //       const file = path.basename(pkg.theemo.name);
-
-  //       return new Funnel(directory, {
-  //         files: [file],
-  //         destDir: '/theemo',
-  //         // I dunno why this next function is required :shrug:
-  //         getDestinationPath(relativePath) {
-  //           if (relativePath === file) {
-  //             return `./${pkg.theemo.name}.css`;
-  //           }
-
-  //           return relativePath;
-  //         }
-  //       });
-  //     })
-  //   );
-
-  //   return this.debugTree(mergeTrees(trees), 'treeForPublic');
-  // }
 };
