@@ -24,9 +24,9 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  const { Webpack } = require('@embroider/webpack');
+  const { maybeEmbroider } = require('@embroider/test-setup');
 
-  return require('@embroider/compat').compatBuild(app, Webpack, {
+  return maybeEmbroider(app, {
     packagerOptions: {
       webpackConfig: {
         plugins: [theemoPlugin()]
