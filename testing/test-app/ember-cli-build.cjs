@@ -23,7 +23,7 @@ module.exports = function (defaults) {
 
     // Add options here
     theemo: {
-      defaultTheme: 'sample'
+      defaultTheme: 'ocean'
     }
   });
 

@@ -188,6 +188,9 @@ importers:
       '@gossi/config-template-lint':
         specifier: ^1.0.1
         version: 1.0.1(ember-template-lint@7.9.1)(prettier@3.6.2)
+      '@theemo/theme':
+        specifier: ^1.0.1
+        version: 1.0.1
       '@types/eslint':
         specifier: ^8.56.12
         version: 8.56.12
