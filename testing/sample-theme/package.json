@@ -8,11 +8,18 @@
   ],
   "theemo": {
     "name": "sample",
-    "colorSchemes": [
-      "light",
-      "dark"
-    ],
-    "file": "sample.css"
+    "file": "sample.css",
+    "features": [
+      {
+        "name": "sizing",
+        "options": [
+          "smaller",
+          "normal",
+          "bigger"
+        ],
+        "defaultOption": "normal"
+      }
+    ]
   },
   "engines": {
     "node": "^20.11.0 || >=22"
