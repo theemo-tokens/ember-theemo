@@ -9,7 +9,7 @@
   "license": "MIT",
   "author": "gossi",
   "files": [
-    "addon-main.js",
+    "addon-main.cjs",
     "dist"
   ],
   "typesVersions": {
