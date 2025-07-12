@@ -9232,7 +9232,7 @@ snapshots:
 
   '@types/glob@9.0.0':
     dependencies:
-      glob: 9.3.5
+      glob: 10.4.5
 
   '@types/http-errors@2.0.5': {}
 
@@ -14086,7 +14086,7 @@ snapshots:
   path-scurry@1.11.1:
     dependencies:
       lru-cache: 10.4.3
-      minipass: 5.0.0
+      minipass: 7.1.2
 
   path-to-regexp@0.1.12: {}
 
