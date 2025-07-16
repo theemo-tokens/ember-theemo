@@ -115,8 +115,8 @@ importers:
         specifier: ^3.4.5
         version: 3.4.5(@babel/core@7.28.0)(@babel/plugin-transform-runtime@7.28.0(@babel/core@7.28.0))(@babel/preset-env@7.28.0(@babel/core@7.28.0))(@babel/preset-typescript@7.27.1(@babel/core@7.28.0))(@babel/runtime@7.27.6)(@swc/core@1.12.9)(rollup@4.45.1)(typescript@5.8.3)
       type-fest:
-        specifier: ^3.13.1
-        version: 3.13.1
+        specifier: ^4.41.0
+        version: 4.41.0
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -6915,10 +6915,6 @@ packages:
   type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
-
-  type-fest@3.13.1:
-    resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
-    engines: {node: '>=14.16'}
 
   type-fest@4.41.0:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
@@ -15536,8 +15532,6 @@ snapshots:
   type-fest@0.11.0: {}
 
   type-fest@0.21.3: {}
-
-  type-fest@3.13.1: {}
 
   type-fest@4.41.0: {}
 
