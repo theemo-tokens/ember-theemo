@@ -37,7 +37,7 @@
     "@gossi/config-template-lint": "^1.0.1",
     "@theemo/theme": "^1.0.1",
     "@types/eslint": "^8.56.12",
-    "@types/qunit": "^2.19.12",
+    "@types/qunit": "^2.19.13",
     "@types/rsvp": "^4.0.9",
     "broccoli-asset-rev": "^3.0.0",
     "decorator-transforms": "^2.3.0",
