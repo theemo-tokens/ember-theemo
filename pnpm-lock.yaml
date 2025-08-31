@@ -113,7 +113,7 @@ importers:
         version: 1.5.0
       rollup-plugin-ts:
         specifier: ^3.4.5
-        version: 3.4.5(@babel/core@7.28.3)(@babel/plugin-transform-runtime@7.28.3(@babel/core@7.28.3))(@babel/preset-env@7.28.0(@babel/core@7.28.3))(@babel/preset-typescript@7.27.1(@babel/core@7.28.3))(@babel/runtime@7.27.6)(@swc/core@1.12.9)(rollup@4.48.0)(typescript@5.9.2)
+        version: 3.4.5(@babel/core@7.28.3)(@babel/plugin-transform-runtime@7.28.3(@babel/core@7.28.3))(@babel/preset-env@7.28.0(@babel/core@7.28.3))(@babel/preset-typescript@7.27.1(@babel/core@7.28.3))(@babel/runtime@7.28.3)(@swc/core@1.12.9)(rollup@4.48.0)(typescript@5.9.2)
       type-fest:
         specifier: ^4.41.0
         version: 4.41.0
@@ -858,8 +858,8 @@ packages:
   '@babel/runtime@7.12.18':
     resolution: {integrity: sha512-BogPQ7ciE6SYAUPtlm9tWbgI9+2AgqSam6QivMgXgAT+fKbgppaj4ZX15MHeLC1PVF5sNk70huBu20XxWOs8Cg==}
 
-  '@babel/runtime@7.27.6':
-    resolution: {integrity: sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==}
+  '@babel/runtime@7.28.3':
+    resolution: {integrity: sha512-9uIQ10o0WGdpP6GDhXcdOJPJuDgFtIDtN/9+ArJQ2NAfAmiuhTQdzkaTGR33v43GYS2UrSA0eX2pPPHoFVvpxA==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.27.2':
@@ -8095,7 +8095,7 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.13.11
 
-  '@babel/runtime@7.27.6': {}
+  '@babel/runtime@7.28.3': {}
 
   '@babel/template@7.27.2':
     dependencies:
@@ -8247,7 +8247,7 @@ snapshots:
       '@babel/plugin-syntax-typescript': 7.27.1(@babel/core@7.28.3)
       '@babel/plugin-transform-runtime': 7.28.3(@babel/core@7.28.3)
       '@babel/preset-env': 7.28.0(@babel/core@7.28.3)(supports-color@8.1.1)
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.28.3
       '@babel/traverse': 7.28.3(supports-color@8.1.1)
       '@embroider/core': 3.5.7
       '@embroider/macros': 1.16.13
@@ -13045,7 +13045,7 @@ snapshots:
 
   is-language-code@3.1.0:
     dependencies:
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.28.3
 
   is-map@2.0.3: {}
 
@@ -14521,7 +14521,7 @@ snapshots:
     dependencies:
       fast-glob: 3.3.2
 
-  rollup-plugin-ts@3.4.5(@babel/core@7.28.3)(@babel/plugin-transform-runtime@7.28.3(@babel/core@7.28.3))(@babel/preset-env@7.28.0(@babel/core@7.28.3))(@babel/preset-typescript@7.27.1(@babel/core@7.28.3))(@babel/runtime@7.27.6)(@swc/core@1.12.9)(rollup@4.48.0)(typescript@5.9.2):
+  rollup-plugin-ts@3.4.5(@babel/core@7.28.3)(@babel/plugin-transform-runtime@7.28.3(@babel/core@7.28.3))(@babel/preset-env@7.28.0(@babel/core@7.28.3))(@babel/preset-typescript@7.27.1(@babel/core@7.28.3))(@babel/runtime@7.28.3)(@swc/core@1.12.9)(rollup@4.48.0)(typescript@5.9.2):
     dependencies:
       '@rollup/pluginutils': 5.2.0(rollup@4.48.0)
       '@wessberg/stringutil': 1.0.19
@@ -14540,7 +14540,7 @@ snapshots:
       '@babel/plugin-transform-runtime': 7.28.3(@babel/core@7.28.3)
       '@babel/preset-env': 7.28.0(@babel/core@7.28.3)(supports-color@8.1.1)
       '@babel/preset-typescript': 7.27.1(@babel/core@7.28.3)
-      '@babel/runtime': 7.27.6
+      '@babel/runtime': 7.28.3
       '@swc/core': 1.12.9
 
   rollup@4.48.0:
