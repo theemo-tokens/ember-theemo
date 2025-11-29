@@ -19,7 +19,7 @@ importers:
     dependencies:
       '@embroider/addon-shim':
         specifier: ^1.10.0
-        version: 1.10.0
+        version: 1.10.2
       '@theemo/theme':
         specifier: ^1.0.1
         version: 1.0.1
@@ -150,8 +150,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       '@ember/test-helpers':
-        specifier: ^5.3.0
-        version: 5.3.0(@babel/core@7.28.5)
+        specifier: ^5.4.1
+        version: 5.4.1(@babel/core@7.28.5)
       '@embroider/compat':
         specifier: ^3.9.1
         version: 3.9.1(@embroider/core@3.5.7)
@@ -235,7 +235,7 @@ importers:
         version: 3.0.1(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-qunit:
         specifier: ^9.0.4
-        version: 9.0.4(@ember/test-helpers@5.3.0(@babel/core@7.28.5))(qunit@2.24.2)
+        version: 9.0.4(@ember/test-helpers@5.4.1(@babel/core@7.28.5))(qunit@2.24.2)
       ember-resolver:
         specifier: ^13.1.1
         version: 13.1.1
@@ -964,8 +964,8 @@ packages:
     resolution: {integrity: sha512-a1OQ+w9vDvMXd9BNA9r779yr8MAPguGaMGbIeTMPWACeWBdD6bACBB5iKE3gNyrJAYKMq2wab6BKmRFS3Qw3hw==}
     engines: {node: 10.* || 12.* || >= 14}
 
-  '@ember/test-helpers@5.3.0':
-    resolution: {integrity: sha512-CG3Iiap0vbrjtOzRg4cN0fd7fMUVhFK5gURkc8yQGJtKT3LwXLLtCLkMG/A55sMTIYHlYRETuJXqv9slO90RKw==}
+  '@ember/test-helpers@5.4.1':
+    resolution: {integrity: sha512-BUdT91ra+QibEWAUwtZmvTGFoDHJCxDU+fkQENA8Zs0FR3pZiICxxP/fgdlNExCjjdm1letut7ENoueBuDdixQ==}
 
   '@ember/test-waiters@3.1.0':
     resolution: {integrity: sha512-bb9h95ktG2wKY9+ja1sdsFBdOms2lB19VWs8wmNpzgHv1NCetonBoV5jHBV4DHt0uS1tg9z66cZqhUVlYs96KQ==}
@@ -981,8 +981,8 @@ packages:
       rollup:
         optional: true
 
-  '@embroider/addon-shim@1.10.0':
-    resolution: {integrity: sha512-gcJuHiXgnrzaU8NyU+2bMbtS6PNOr5v5B8OXBqaBvTCsMpXLvKo8OBOQFCoUN0rPX2J6VaFqrbi/371sMvzZug==}
+  '@embroider/addon-shim@1.10.2':
+    resolution: {integrity: sha512-EfI9cJ5/3QSUJtwm7x1MXrx3TEa2p7RNgSHefy7fvGm8/DP1xUFL25nST1NaHbHcqR1UhMlrTtv5iUIDoVzeQQ==}
     engines: {node: 12.* || 14.* || >= 16}
 
   '@embroider/babel-loader-9@3.1.2':
@@ -8292,10 +8292,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ember/test-helpers@5.3.0(@babel/core@7.28.5)':
+  '@ember/test-helpers@5.4.1(@babel/core@7.28.5)':
     dependencies:
       '@ember/test-waiters': 3.1.0
-      '@embroider/addon-shim': 1.10.0
+      '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.19.2
       '@simple-dom/interface': 1.4.0
       decorator-transforms: 2.3.0(@babel/core@7.28.5)
@@ -8334,7 +8334,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@embroider/addon-shim@1.10.0':
+  '@embroider/addon-shim@1.10.2':
     dependencies:
       '@embroider/shared-internals': 3.0.1
       broccoli-funnel: 3.0.8
@@ -8646,7 +8646,7 @@ snapshots:
 
   '@glimmer/component@2.0.0':
     dependencies:
-      '@embroider/addon-shim': 1.10.0
+      '@embroider/addon-shim': 1.10.2
       '@glimmer/env': 0.1.7
     transitivePeerDependencies:
       - supports-color
@@ -11481,10 +11481,10 @@ snapshots:
     dependencies:
       ember-source: 6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)
 
-  ember-qunit@9.0.4(@ember/test-helpers@5.3.0(@babel/core@7.28.5))(qunit@2.24.2):
+  ember-qunit@9.0.4(@ember/test-helpers@5.4.1(@babel/core@7.28.5))(qunit@2.24.2):
     dependencies:
-      '@ember/test-helpers': 5.3.0(@babel/core@7.28.5)
-      '@embroider/addon-shim': 1.10.0
+      '@ember/test-helpers': 5.4.1(@babel/core@7.28.5)
+      '@embroider/addon-shim': 1.10.2
       '@embroider/macros': 1.19.2
       qunit: 2.24.2
       qunit-theme-ember: 1.0.0
@@ -11518,7 +11518,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.28.5(supports-color@8.1.1)
       '@ember/edition-utils': 1.2.0
-      '@embroider/addon-shim': 1.10.0
+      '@embroider/addon-shim': 1.10.2
       '@glimmer/compiler': 0.94.11
       '@glimmer/component': 2.0.0
       '@glimmer/destroyable': 0.94.8
