@@ -57,7 +57,7 @@
     "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-commonjs": "^28.0.9",
     "@types/node": "^22.18.10",
-    "ember-source": "^6.8.2",
+    "ember-source": "^6.9.0",
     "eslint": "^9.30.1",
     "eslint-plugin-ember": "^12.5.0",
     "prettier": "^3.6.2",
