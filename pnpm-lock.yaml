@@ -94,8 +94,8 @@ importers:
         specifier: ^22.18.10
         version: 22.18.10
       ember-source:
-        specifier: ^6.8.2
-        version: 6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)
+        specifier: ^6.9.0
+        version: 6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
       eslint:
         specifier: ^9.30.1
         version: 9.30.1
@@ -147,8 +147,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       '@ember/optional-features':
-        specifier: ^2.2.0
-        version: 2.2.0
+        specifier: ^2.3.0
+        version: 2.3.0
       '@ember/test-helpers':
         specifier: ^5.4.1
         version: 5.4.1(@babel/core@7.28.5)
@@ -232,7 +232,7 @@ importers:
         version: 1.1.3
       ember-load-initializers:
         specifier: ^3.0.1
-        version: 3.0.1(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5))
+        version: 3.0.1(ember-source@6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5))
       ember-qunit:
         specifier: ^9.0.4
         version: 9.0.4(@ember/test-helpers@5.4.1(@babel/core@7.28.5))(qunit@2.24.2)
@@ -240,8 +240,8 @@ importers:
         specifier: ^13.1.1
         version: 13.1.1
       ember-source:
-        specifier: ~6.8.2
-        version: 6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)
+        specifier: ~6.9.0
+        version: 6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
       ember-source-channel-url:
         specifier: ^3.0.0
         version: 3.0.0(encoding@0.1.13)
@@ -960,8 +960,8 @@ packages:
   '@ember/library-tsconfig@1.1.3':
     resolution: {integrity: sha512-4cKJ38VEcm4mYmontK9BCpQgm5GPLgAeXqd6PqTHD8eKN0GTeegxdX4SsSUN/8emmULq/9H/Oh6fp3vM2mFqkA==}
 
-  '@ember/optional-features@2.2.0':
-    resolution: {integrity: sha512-a1OQ+w9vDvMXd9BNA9r779yr8MAPguGaMGbIeTMPWACeWBdD6bACBB5iKE3gNyrJAYKMq2wab6BKmRFS3Qw3hw==}
+  '@ember/optional-features@2.3.0':
+    resolution: {integrity: sha512-+M8CkPledQEaDbfIlwlq6Phgpm5jdT3a6WVDJk7b/zadw5xAJkuQKVK7DgR0SFgHGiWlyn6a8AU5p2mCA706RA==}
     engines: {node: 10.* || 12.* || >= 14}
 
   '@ember/test-helpers@5.4.1':
@@ -3465,8 +3465,8 @@ packages:
     engines: {node: 10.* || 12.* || >= 14}
     hasBin: true
 
-  ember-source@6.8.2:
-    resolution: {integrity: sha512-z2ukdKj+97fmo6DqIajKcPFVFwxEIiHzcENmDQVMGlPUR9O7jtENOST7RS3xAiHdCdFoYKRuf7+g2GvNW/7hLw==}
+  ember-source@6.9.0:
+    resolution: {integrity: sha512-d/P2/z5Y82/EEn95JRkwYy/JckZTCAgfZZC3dhWWzzXt5ZGHbHbAhole0c4wuUyYz42thM6isJa3C97b/1PdcA==}
     engines: {node: '>= 18.*'}
     peerDependencies:
       '@glimmer/component': '>= 1.1.2'
@@ -8293,7 +8293,7 @@ snapshots:
 
   '@ember/library-tsconfig@1.1.3': {}
 
-  '@ember/optional-features@2.2.0':
+  '@ember/optional-features@2.3.0':
     dependencies:
       chalk: 4.1.2
       ember-cli-version-checker: 5.1.2
@@ -11495,9 +11495,9 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  ember-load-initializers@3.0.1(ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)):
+  ember-load-initializers@3.0.1(ember-source@6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5)):
     dependencies:
-      ember-source: 6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5)
+      ember-source: 6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
 
   ember-qunit@9.0.4(@ember/test-helpers@5.4.1(@babel/core@7.28.5))(qunit@2.24.2):
     dependencies:
@@ -11532,7 +11532,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  ember-source@6.8.2(@glimmer/component@2.0.0)(rsvp@4.8.5):
+  ember-source@6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5):
     dependencies:
       '@babel/core': 7.28.5(supports-color@8.1.1)
       '@ember/edition-utils': 1.2.0
