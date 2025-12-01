@@ -91,8 +91,8 @@ importers:
         specifier: ^29.0.0
         version: 29.0.0(rollup@4.53.3)
       '@types/node':
-        specifier: ^22.18.10
-        version: 22.18.10
+        specifier: ^22.19.1
+        version: 22.19.1
       ember-source:
         specifier: ^6.9.0
         version: 6.9.0(@glimmer/component@2.0.0)(rsvp@4.8.5)
@@ -1811,8 +1811,8 @@ packages:
   '@types/node@17.0.45':
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
 
-  '@types/node@22.18.10':
-    resolution: {integrity: sha512-anNG/V/Efn/YZY4pRzbACnKxNKoBng2VTFydVu8RRs5hQjikP8CQfaeAV59VFSCzKNp90mXiVXW2QzV56rwMrg==}
+  '@types/node@22.19.1':
+    resolution: {integrity: sha512-LCCV0HdSZZZb34qifBsyWlUmok6W7ouER+oQIGBScS8EsZsQbrtFTUrDX4hOl+CS6p7cnNC4td+qrSVGSCTUfQ==}
 
   '@types/object-path@0.11.4':
     resolution: {integrity: sha512-4tgJ1Z3elF/tOMpA8JLVuR9spt9Ynsf7+JjqsQ2IqtiPJtcLoHoXcT6qU4E10cPFqyXX5HDm9QwIzZhBSkLxsw==}
@@ -9351,7 +9351,7 @@ snapshots:
   '@types/body-parser@1.19.6':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/chai-as-promised@7.1.8':
     dependencies:
@@ -9361,11 +9361,11 @@ snapshots:
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/cors@2.8.19':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/eslint-scope@3.7.7':
     dependencies:
@@ -9386,7 +9386,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.6':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
       '@types/qs': 6.14.0
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.5
@@ -9400,11 +9400,11 @@ snapshots:
 
   '@types/fs-extra@5.1.0':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/fs-extra@8.1.5':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/glob@9.0.0':
     dependencies:
@@ -9419,7 +9419,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/mime@1.3.5': {}
 
@@ -9429,7 +9429,7 @@ snapshots:
 
   '@types/node@17.0.45': {}
 
-  '@types/node@22.18.10':
+  '@types/node@22.19.1':
     dependencies:
       undici-types: 6.21.0
 
@@ -9443,12 +9443,12 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/rimraf@2.0.5':
     dependencies:
       '@types/glob': 9.0.0
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/rsvp@4.0.9': {}
 
@@ -9457,12 +9457,12 @@ snapshots:
   '@types/send@0.17.5':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
 
   '@types/serve-static@1.15.8':
     dependencies:
       '@types/http-errors': 2.0.5
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
       '@types/send': 0.17.5
 
   '@types/supports-color@8.1.3': {}
@@ -11671,7 +11671,7 @@ snapshots:
   engine.io@6.6.4:
     dependencies:
       '@types/cors': 2.8.19
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
       accepts: 1.3.8
       base64id: 2.0.0
       cookie: 0.7.2
@@ -13374,7 +13374,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.18.10
+      '@types/node': 22.19.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
