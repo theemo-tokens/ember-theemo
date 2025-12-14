@@ -91,7 +91,7 @@ importers:
         specifier: ^29.0.0
         version: 29.0.0(rollup@4.53.3)
       '@types/node':
-        specifier: ^24.10.3
+        specifier: ^24.10.4
         version: 24.10.4
       ember-source:
         specifier: ^6.9.0
