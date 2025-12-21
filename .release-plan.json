@@ -1,18 +1,8 @@
 {
   "solution": {
     "ember-theemo": {
-      "impact": "patch",
-      "oldVersion": "1.0.0",
-      "newVersion": "1.0.1",
-      "tagName": "latest",
-      "constraints": [
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
-        }
-      ],
-      "pkgJSONPath": "./ember-theemo/package.json"
+      "oldVersion": "1.0.1"
     }
   },
-  "description": "## Release (2025-07-10)\n\n* ember-theemo 1.0.1 (patch)\n\n#### :bug: Bug Fix\n* `ember-theemo`\n  * [#67](https://github.com/theemo-tokens/ember-theemo/pull/67) Fix addon main file for publish ([@gossi](https://github.com/gossi))\n\n#### Committers: 1\n- Thomas Gossmann ([@gossi](https://github.com/gossi))\n"
+  "description": "\n\n\n\n"
 }
