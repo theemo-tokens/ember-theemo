@@ -19,7 +19,7 @@
     "sample-theme": "workspace:*"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
+    "@babel/core": "^7.29.0",
     "@ember/app-tsconfig": "^2.0.0",
     "@ember/optional-features": "^2.3.0",
     "@ember/test-helpers": "^5.4.1",
