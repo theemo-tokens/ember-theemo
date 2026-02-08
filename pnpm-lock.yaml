@@ -181,7 +181,7 @@ importers:
         version: 1.0.1(prettier@3.6.2)
       '@gossi/config-stylelint':
         specifier: ^1.0.2
-        version: 1.0.2(stylelint@17.1.0(typescript@5.9.3))
+        version: 1.0.2(stylelint@17.1.1(typescript@5.9.3))
       '@gossi/config-targets':
         specifier: ^1.0.1
         version: 1.0.1
@@ -273,8 +273,8 @@ importers:
         specifier: ^3.5.0
         version: 3.5.0
       stylelint:
-        specifier: ^17.1.0
-        version: 17.1.0(typescript@5.9.3)
+        specifier: ^17.1.1
+        version: 17.1.1(typescript@5.9.3)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -7070,8 +7070,8 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
 
-  stylelint@17.1.0:
-    resolution: {integrity: sha512-+cUX1FxkkbLX5qJRAPapUv/+v+YU3pGbWu+pHVqTXpiY0mYh3Dxfxa0bLBtVtYgOC8hIWIyX2H/3Y3LWlAevDg==}
+  stylelint@17.1.1:
+    resolution: {integrity: sha512-SBHVcLEcRF1M9OkD3oT0hT2PayDNLw2hd+aovmzfNQ2ys4Xd3oS9ZNizILWqhQvW802AqKN/vUTMwJqQYMBlWw==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -9207,13 +9207,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@gossi/config-stylelint@1.0.2(stylelint@17.1.0(typescript@5.9.3))':
+  '@gossi/config-stylelint@1.0.2(stylelint@17.1.1(typescript@5.9.3))':
     dependencies:
       '@gossi/config-targets': 1.0.1
-      stylelint: 17.1.0(typescript@5.9.3)
-      stylelint-config-clean-order: 7.0.0(stylelint@17.1.0(typescript@5.9.3))
-      stylelint-config-standard: 38.0.0(stylelint@17.1.0(typescript@5.9.3))
-      stylelint-no-unsupported-browser-features: 8.0.4(stylelint@17.1.0(typescript@5.9.3))
+      stylelint: 17.1.1(typescript@5.9.3)
+      stylelint-config-clean-order: 7.0.0(stylelint@17.1.1(typescript@5.9.3))
+      stylelint-config-standard: 38.0.0(stylelint@17.1.1(typescript@5.9.3))
+      stylelint-no-unsupported-browser-features: 8.0.4(stylelint@17.1.1(typescript@5.9.3))
 
   '@gossi/config-targets@1.0.1': {}
 
@@ -15957,33 +15957,33 @@ snapshots:
 
   styled_string@0.0.1: {}
 
-  stylelint-config-clean-order@7.0.0(stylelint@17.1.0(typescript@5.9.3)):
+  stylelint-config-clean-order@7.0.0(stylelint@17.1.1(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.1.0(typescript@5.9.3)
-      stylelint-order: 6.0.4(stylelint@17.1.0(typescript@5.9.3))
+      stylelint: 17.1.1(typescript@5.9.3)
+      stylelint-order: 6.0.4(stylelint@17.1.1(typescript@5.9.3))
 
-  stylelint-config-recommended@16.0.0(stylelint@17.1.0(typescript@5.9.3)):
+  stylelint-config-recommended@16.0.0(stylelint@17.1.1(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.1.0(typescript@5.9.3)
+      stylelint: 17.1.1(typescript@5.9.3)
 
-  stylelint-config-standard@38.0.0(stylelint@17.1.0(typescript@5.9.3)):
+  stylelint-config-standard@38.0.0(stylelint@17.1.1(typescript@5.9.3)):
     dependencies:
-      stylelint: 17.1.0(typescript@5.9.3)
-      stylelint-config-recommended: 16.0.0(stylelint@17.1.0(typescript@5.9.3))
+      stylelint: 17.1.1(typescript@5.9.3)
+      stylelint-config-recommended: 16.0.0(stylelint@17.1.1(typescript@5.9.3))
 
-  stylelint-no-unsupported-browser-features@8.0.4(stylelint@17.1.0(typescript@5.9.3)):
+  stylelint-no-unsupported-browser-features@8.0.4(stylelint@17.1.1(typescript@5.9.3)):
     dependencies:
       doiuse: 6.0.5
       postcss: 8.5.6
-      stylelint: 17.1.0(typescript@5.9.3)
+      stylelint: 17.1.1(typescript@5.9.3)
 
-  stylelint-order@6.0.4(stylelint@17.1.0(typescript@5.9.3)):
+  stylelint-order@6.0.4(stylelint@17.1.1(typescript@5.9.3)):
     dependencies:
       postcss: 8.5.6
       postcss-sorting: 8.0.2(postcss@8.5.6)
-      stylelint: 17.1.0(typescript@5.9.3)
+      stylelint: 17.1.1(typescript@5.9.3)
 
-  stylelint@17.1.0(typescript@5.9.3):
+  stylelint@17.1.1(typescript@5.9.3):
     dependencies:
       '@csstools/css-parser-algorithms': 4.0.0(@csstools/css-tokenizer@4.0.0)
       '@csstools/css-syntax-patches-for-csstree': 1.0.25
