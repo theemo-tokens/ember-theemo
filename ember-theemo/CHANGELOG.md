@@ -1,5 +1,10 @@
 # Changelog
 
+
+
+
+
+
 ## Release (2025-07-10)
 
 * ember-theemo 1.0.1 (patch)
