@@ -54,7 +54,7 @@
     "@gossi/config-eslint": "^1.1.2",
     "@gossi/config-prettier": "^1.0.1",
     "@gossi/config-targets": "^1.0.1",
-    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-babel": "^7.0.0",
     "@rollup/plugin-commonjs": "^29.0.2",
     "@types/node": "^24.12.0",
     "ember-source": "^6.11.0",
