@@ -109,8 +109,8 @@ importers:
         specifier: ^4.59.0
         version: 4.59.0
       rollup-plugin-multi-input:
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.8.0
+        version: 1.8.0
       rollup-plugin-ts:
         specifier: ^3.4.5
         version: 3.4.5(@babel/core@7.29.0)(@babel/plugin-transform-runtime@7.29.0(@babel/core@7.29.0))(@babel/preset-env@7.28.0(@babel/core@7.29.0))(@babel/preset-typescript@7.28.5(@babel/core@7.29.0))(@babel/runtime@7.28.3)(@swc/core@1.12.9)(rollup@4.59.0)(typescript@5.9.3)
@@ -6506,8 +6506,8 @@ packages:
     peerDependencies:
       rollup: '>=1.1.2'
 
-  rollup-plugin-multi-input@1.7.0:
-    resolution: {integrity: sha512-TKdwsa4mA4K4q3YbcZyqnqgccLsv45ujGgqdLfQU1ggnT7gmxCq9I6x1NZxfrexZg79gPWQGDiEb2W7s+6D99Q==}
+  rollup-plugin-multi-input@1.8.0:
+    resolution: {integrity: sha512-X8nSq29ZzFrc1LJSZ3d3nS7jE54g3oVLVwqkzJacwABvk5FikKmq275xrmz0mSoJxHUsLsN7taJbwhrv9qoW7A==}
     engines: {node: '>=16'}
 
   rollup-plugin-ts@3.4.5:
@@ -15265,7 +15265,7 @@ snapshots:
       fs-extra: 7.0.1
       rollup: 4.59.0
 
-  rollup-plugin-multi-input@1.7.0:
+  rollup-plugin-multi-input@1.8.0:
     dependencies:
       fast-glob: 3.3.3
 
