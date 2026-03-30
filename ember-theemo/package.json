@@ -48,7 +48,7 @@
     "@babel/plugin-transform-typescript": "^7.28.6",
     "@babel/preset-typescript": "^7.28.5",
     "@ember/library-tsconfig": "^2.0.0",
-    "@embroider/addon-dev": "^7.1.6",
+    "@embroider/addon-dev": "^8.3.0",
     "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
     "@gossi/config-eslint": "^1.1.2",
