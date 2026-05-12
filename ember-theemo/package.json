@@ -65,7 +65,7 @@
     "rollup-plugin-multi-input": "^1.7.0",
     "rollup-plugin-ts": "^3.4.5",
     "type-fest": "^5.5.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "webpack": "^5.105.4"
   },
   "engines": {

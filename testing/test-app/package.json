@@ -64,7 +64,7 @@
     "qunit": "^2.25.0",
     "qunit-dom": "^3.5.0",
     "stylelint": "^17.6.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "webpack": "^5.105.4"
   },
   "engines": {
